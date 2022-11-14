@@ -1,56 +1,63 @@
-import config
-import SimulationRunner
-import DataReader
-import ResultLogger
+import argparse
+import sys, os
+import importlib.util
 
-import warnings
-import os, sys
-import numpy as np
-import pandas as pd
-import datetime
+parser = argparse.ArgumentParser(
+    prog="ExperimentRunner",
+    description="Starts individual experiments and logs results",
+)
+parser.add_argument(
+    "-w",
+    "--workdir",
+    type=str,
+    help="path to the working directory for input and output",
+    default="/home/l/projects/Morpheus/Tutorial/Experiments/experiments/trial_1000",
+)
+parser.add_argument(
+    "-c", "--configfile", type=str, help="path to the config file", default="config.py"
+)
+args = parser.parse_args()
+workdir = os.path.abspath(os.path.abspath(os.path.join(os.getcwd(), args.workdir)))
+configfile = os.path.abspath(os.path.abspath(os.path.join(workdir, args.configfile)))
+
+spec = importlib.util.spec_from_file_location("config", configfile)
+config = importlib.util.module_from_spec(spec)
+sys.modules["config"] = config
+spec.loader.exec_module(config)
+
+sys.path.append(os.path.abspath(os.path.join(config.SourcePath)))
+sys.path.append(os.path.abspath(os.path.join(config.BayesFlowPath)))
+from DataReader import DataReader
+from SimulationRunner import SimulationRunner
+from ResultLogger import ResultLogger
 from functools import partial
 import tensorflow as tf
-import matplotlib.pyplot as plt
-from datetime import datetime
-import glob
-from fnmatch import fnmatch
-import plotnine as p9
-import patchworklib as pw
-from sklearn.linear_model import LinearRegression
-
-sys.path.append(os.path.abspath(os.path.join(config.BayesFlowPath)))
+from contextlib import redirect_stdout, redirect_stderr
 from bayesflow.forward_inference import GenerativeModel, Prior, Simulator
-from bayesflow.networks import InvertibleNetwork, InvariantNetwork
+from bayesflow.networks import InvertibleNetwork
 from bayesflow.amortized_inference import AmortizedPosterior
 from bayesflow.trainers import Trainer
-
-import time
-import glob
-import subprocess
-from contextlib import redirect_stdout, redirect_stderr
-
+import bayesflow.diagnostics as diag
 
 # Allow memory growth for the GPU
-physical_devices = tf.config.experimental.list_physical_devices("GPU")
-tf.config.experimental.set_memory_growth(physical_devices[0], True)
-tf.config.experimental.set_memory_growth(physical_devices[1], True)
+# physical_devices = tf.config.experimental.list_physical_devices("GPU")
+# tf.config.experimental.set_memory_growth(physical_devices[0], True)
+# tf.config.experimental.set_memory_growth(physical_devices[1], True)
 
 
 if __name__ == "__main__":
-    workdir = os.environ["WORKDIR"]
     with open(os.path.join(workdir, "log_training.txt"), "w") as logfile:
-        with redirect_stdout(logfile) and redirect_stderr(logfile):
+        with redirect_stdout(logfile), redirect_stderr(logfile):
             prior = Prior(prior_fun=config.prior_func, param_names=config.prior_names)
-
-            simulator = Simulator(
-                simulator_fun=partial(SimulationRunner.run_morpheus), workdir=workdir
+            prior_means, prior_stds = prior.estimate_means_and_stds()
+            dataReader = DataReader(
+                config, prior_means=prior_means, prior_stds=prior_stds
             )
+            simulationRunner = SimulationRunner(config, workdir, dataReader)
+
+            simulator = Simulator(simulator_fun=partial(simulationRunner.run_morpheus))
             model = GenerativeModel(prior, simulator, name=config.model_name)
 
-            prior_means, prior_stds = prior.estimate_means_and_stds()
-            prepare_input_fun = partial(
-                DataReader.prepare_input, prior_means=prior_means, prior_stds=prior_stds
-            )
             summary_net = config.summary_network
             inference_net = InvertibleNetwork(
                 {
@@ -64,14 +71,14 @@ if __name__ == "__main__":
             trainer = Trainer(
                 amortizer=amortizer,
                 generative_model=model,
-                configurator=prepare_input_fun,
+                configurator=dataReader.prepare_input,
                 checkpoint_path=os.path.join(workdir, config.checkpoints),
                 optional_stopping=config.optional_stopping,
             )
 
             match config.training_mode:
                 case "offline":
-                    data, params = DataReader.read_offline_data(
+                    data, params = dataReader.read_offline_data(
                         os.path.join(config.data_path, config.folder + "/*")
                     )
                     h = trainer.train_offline(
@@ -89,5 +96,12 @@ if __name__ == "__main__":
                     logfile.write("Unbekannter Trainingsmodus")
                     sys.exit()
 
-            results = ResultLogger(trainer=trainer, losses=h, workdir=workdir)
+            results = ResultLogger(
+                workdir=workdir,
+                trainer=trainer,
+                losses=h,
+                config=config,
+                prior=prior,
+                diag=diag,
+            )
             results.create_plots()

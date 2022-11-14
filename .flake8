@@ -1,0 +1,4 @@
+# TODO: flake8
+ignore = E203
+exclude-from-doctest = ./venv_experiments/**/*
+max_line_length=120

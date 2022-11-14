@@ -1,80 +1,96 @@
-import config
 import glob
 import os, sys
 from subprocess import Popen, PIPE, STDOUT
-from DataReader import calculate_V, calculate_volume
 import numpy as np
 import time
 from pandas import read_csv
 from contextlib import redirect_stdout, redirect_stderr
 
 
-def run_morpheus(params, workdir):
-    with open(os.path.join(workdir, "log_morpheus.txt"), "w") as logfile:
-        with redirect_stderr(logfile) and redirect_stdout(logfile):
-            bcf, pi = params
-            cv = 0.33
-            DV_str = "wm"
-            DV = 999
+class SimulationRunner:
+    def __init__(self, config, workdir, dataReader):
+        self.config = config
+        self.workdir = workdir
+        self.dataReader = dataReader
 
-            model_dir = "model"
-            model_pattern = os.path.join(
-                config.data_path, model_dir, "*DV-%s*.xml" % DV_str
-            )
-            models = glob.glob(model_pattern)
-            model = models[0]
+    def run_morpheus(self, params):
+        with open(os.path.join(self.workdir, "log_morpheus.txt"), "w") as logfile:
+            with redirect_stderr(logfile), redirect_stdout(logfile):
+                bcf, pi = params
+                cv = 0.33
+                DV_str = "wm"
+                DV = 999
 
-            OUT = (
-                os.path.join(
-                    config.data_path,
-                    config.folder,
-                    "DV-" + str(DV) + "_bcf-" + str(bcf) + "_" + "pi-" + str(pi),
+                model_dir = "model"
+                model_pattern = os.path.join(
+                    self.config.data_path, model_dir, "*DV-%s*.xml" % DV_str
                 )
-                + "_"
-                + "cv-"
-                + str(cv)
-            )
-            create_dir = Popen("mkdir " + OUT)
-            create_dir.wait()
+                models = glob.glob(model_pattern)
+                model = models[0]
 
-            run_sim = Popen(
-                "morpheus"
-                + " -f "
-                + model
-                + " -o "
-                + OUT
-                + " -b_cf "
-                + bcf
-                + " -c_V "
-                + cv
-                + " -p_V "
-                + pi
-            )
-            run_sim.wait()
+                OUT = (
+                    os.path.join(
+                        self.config.data_path,
+                        self.config.folder,
+                        "DV-" + str(DV) + "_bcf-" + str(bcf) + "_" + "pi-" + str(pi),
+                    )
+                    + "_"
+                    + "cv-"
+                    + str(cv)
+                )
+                create_dir = Popen(
+                    "mkdir " + OUT, shell=True, stdout=sys.stdout, stderr=sys.stderr
+                )
+                create_dir.wait()
+                morpheus_command = (
+                    "morpheus"
+                    + " -f "
+                    + model
+                    + " -o "
+                    + OUT
+                    + " -b_cf="
+                    + str(bcf)
+                    + " -c_V="
+                    + str(cv)
+                    + " -p_V="
+                    + str(pi)
+                )
+                print(morpheus_command)
 
-            final_plot = os.path.join(
-                OUT, "plot_" + str(config.timesteps).zfill(5) + ".png"
-            )
-            while not os.path.exists(final_plot):
-                time.sleep(1)
+                run_sim = Popen(
+                    morpheus_command, shell=True, stdout=sys.stdout, stderr=sys.stderr
+                )
+                run_sim.wait()
 
-            population_file = os.path.join(OUT, "logger_2.csv")
-            df = read_csv(population_file, sep="\t")
-            df_tar = df["celltype.target.size"].values[:, np.newaxis][
-                config.cut_off_start + 1 : config.timesteps - config.cut_off_end
-            ]
-            df_inf = df["celltype.infected.size"].values[:, np.newaxis][
-                config.cut_off_start + 1 : config.timesteps - config.cut_off_end
-            ]
-            df_cells = np.append(df_tar, df_inf, axis=1)
+                final_plot = os.path.join(
+                    OUT, "plot_" + str(self.config.timesteps).zfill(5) + ".png"
+                )
+                while not os.path.exists(final_plot):
+                    time.sleep(1)
 
-            v_path = os.path.join(OUT, "logger_6_Ve.csv")
-            v = calculate_V(v_path)
-            sim = np.append(df_cells, v, axis=1)
+                population_file = os.path.join(OUT, "logger_2.csv")
+                df = read_csv(population_file, sep="\t")
+                df_tar = df["celltype.target.size"].values[:, np.newaxis][
+                    self.config.cut_off_start
+                    + 1 : self.config.timesteps
+                    - self.config.cut_off_end
+                ]
+                df_inf = df["celltype.infected.size"].values[:, np.newaxis][
+                    self.config.cut_off_start
+                    + 1 : self.config.timesteps
+                    - self.config.cut_off_end
+                ]
+                df_cells = np.append(df_tar, df_inf, axis=1)
 
-            I_volume = calculate_volume(OUT)[
-                config.cut_off_start + 1 : config.timesteps - config.cut_off_end
-            ]
-            sim = np.append(sim, I_volume, axis=1)
+                v_path = os.path.join(OUT, "logger_6_Ve.csv")
+                v = self.dataReader.calculate_V(v_path)
+                sim = np.append(df_cells, v, axis=1)
 
-            return sim
+                I_volume = self.dataReader.calculate_volume(OUT)[
+                    self.config.cut_off_start
+                    + 1 : self.config.timesteps
+                    - self.config.cut_off_end
+                ]
+                sim = np.append(sim, I_volume, axis=1)
+
+                return sim

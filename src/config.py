@@ -1,11 +1,12 @@
 # config uses a python file, which is questionable in production use. Instead e.g. yaml would be a better choice
 
-import numpy as np
+import sys, os
+
+SourcePath = "/home/l/projects/Morpheus/Tutorial/Experiments/src"
+BayesFlowPath = "/home/l/projects/Morpheus/Tutorial/Experiments/BayesFlow"
+sys.path.append(os.path.abspath(SourcePath))
 import PriorFunctions
 import SummaryNetworks
-
-
-BayesFlowPath = "../BayesFlow"
 
 # set BayesFlow modules
 prior_names = [r"bcf", r"pi"]
@@ -14,14 +15,14 @@ summary_parm = 16
 summary_network = SummaryNetworks.ConvLSTM(n_summary=summary_parm)
 
 # where to put the results
-resultsPath = "results"
+resultsPath = "experiments"
 checkpoints = "checkpoints"
 plots = "plots"
 
 # data config
-data_path = "/home/l/projects/Morpheus/Modelle/cell_free_1000"
+data_path = "/home/l/projects/Morpheus/Modelle/cell_free_50"
 folder = "output_fixed_cv_wm"
-cell_nr = 1001
+cell_nr = 51
 timesteps = 50
 cut_off_start = 9
 cut_off_end = 10
