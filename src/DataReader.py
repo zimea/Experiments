@@ -2,6 +2,9 @@ import os
 import pandas as pd
 import numpy as np
 import glob
+from Utility import timeit
+from tqdm import tqdm
+from contextlib import redirect_stdout, redirect_stderr
 
 
 class DataReader:
@@ -64,82 +67,93 @@ class DataReader:
         df = df.groupby(["time", "V"]).agg({"count": "sum"}).reset_index()
         return np.expand_dims(df.query("V == 1")["count"], axis=1)
 
-    def read_offline_data(self, path: str):
-        path_list = glob.glob(path)
-        nr_of_params = self.config.param_nr
+    @timeit
+    def read_offline_data(self, path: str, workdir):
+        with open(os.path.join(workdir, "log_read_offline.txt"), "w") as logfile:
+            with redirect_stdout(logfile), redirect_stderr(logfile):
+                path_list = glob.glob(path)
+                nr_of_params = self.config.param_nr
 
-        n_sim = len(path_list)
-        dfs = np.empty(
-            (
-                n_sim,
-                (
-                    self.config.timesteps
-                    - 1
-                    - self.config.cut_off_start
-                    - self.config.cut_off_end
-                ),
-                4,
-            ),
-            dtype=np.float32,
-        )
-        params = np.empty((n_sim, nr_of_params), dtype=np.float32)
-        invalidIndices = []
-
-        for path in range(n_sim):
-            pathname = path_list[path]
-            filename = os.path.join(pathname, "logger_2.csv")
-            filename_V = os.path.join(pathname, "logger_6_Ve.csv")
-            df = pd.read_csv(filename, index_col=None, header=0, delimiter="\t")
-            path_split = filename.split("/")[len(filename.split("/")) - 2]
-            if "e" in path_split:
-                invalidIndices.append(path)
-                continue
-            if path_split.startswith("sweep") or path_split.startswith("DV"):
-                start_nr = 1
-            else:
-                start_nr = 0
-            params_split = path_split.split("_")[start_nr : nr_of_params + 1]
-            param_file = list(
-                map(lambda x: round(float(x.split("-")[1]), 3), params_split)
-            )
-
-            df_tar = df["celltype.target.size"].values[:, np.newaxis][
-                self.config.cut_off_start
-                + 1 : self.config.timesteps
-                - self.config.cut_off_end
-            ]
-            df_inf = df["celltype.infected.size"].values[:, np.newaxis][
-                self.config.cut_off_start
-                + 1 : self.config.timesteps
-                - self.config.cut_off_end
-            ]
-            df_cells = np.append(df_tar, df_inf, axis=1)
-            df_V = self.calculate_V(filename_V)
-            I_volume = self.calculate_volume(pathname)[
-                self.config.cut_off_start
-                + 1 : self.config.timesteps
-                - self.config.cut_off_end
-            ]
-
-            if (
-                np.any(df_inf < 1)
-                or np.any(np.asarray(param_file) > 1)
-                or len(df_inf)
-                != (
-                    self.config.timesteps
-                    - 1
-                    - self.config.cut_off_start
-                    - self.config.cut_off_end
+                n_sim = len(path_list)
+                dfs = np.empty(
+                    (
+                        n_sim,
+                        (
+                            self.config.timesteps
+                            - 1
+                            - self.config.cut_off_start
+                            - self.config.cut_off_end
+                        ),
+                        4,
+                    ),
+                    dtype=np.float32,
                 )
-            ):
-                invalidIndices.append(path)
-                continue
-            params[path] = param_file
-            dfs[path] = np.append(np.append(df_cells, df_V, axis=1), I_volume, axis=1)
+                params = np.empty((n_sim, nr_of_params), dtype=np.float32)
+                invalidIndices = []
 
-        dfs = np.delete(dfs, invalidIndices, axis=0)
-        params = np.delete(params, invalidIndices, axis=0)
-        return dfs, params
+                for path in tqdm(range(n_sim)):
+                    pathname = path_list[path]
+                    filename = os.path.join(pathname, "logger_2.csv")
+                    filename_V = os.path.join(pathname, "logger_6_Ve.csv")
+                    df = pd.read_csv(filename, index_col=None, header=0, delimiter="\t")
+                    path_split = filename.split("/")[len(filename.split("/")) - 2]
+                    if "e" in path_split:
+                        invalidIndices.append(path)
+                        continue
+                    if path_split.startswith("sweep") or path_split.startswith("DV"):
+                        start_nr = 1
+                    else:
+                        start_nr = 0
+                    params_split = path_split.split("_")[start_nr : nr_of_params + 1]
+                    param_file = list(
+                        map(lambda x: round(float(x.split("-")[1]), 3), params_split)
+                    )
+
+                    df_tar = df["celltype.target.size"].values[:, np.newaxis][
+                        self.config.cut_off_start
+                        + 1 : self.config.timesteps
+                        - self.config.cut_off_end
+                    ]
+                    df_inf = df["celltype.infected.size"].values[:, np.newaxis][
+                        self.config.cut_off_start
+                        + 1 : self.config.timesteps
+                        - self.config.cut_off_end
+                    ]
+                    df_cells = np.append(df_tar, df_inf, axis=1)
+                    try:
+                        df_V = self.calculate_V(filename_V)
+                        I_volume = self.calculate_volume(pathname)[
+                            self.config.cut_off_start
+                            + 1 : self.config.timesteps
+                            - self.config.cut_off_end
+                        ]
+                    except Exception as error:
+                        invalidIndices.append(path)
+                        continue
+
+                    if (
+                        np.any(df_inf < 1)
+                        or np.any(np.asarray(param_file) > 1)
+                        or len(df_inf)
+                        != (
+                            self.config.timesteps
+                            - 1
+                            - self.config.cut_off_start
+                            - self.config.cut_off_end
+                        )
+                    ):
+                        invalidIndices.append(path)
+                        continue
+                    params[path] = param_file
+                    dfs[path] = np.append(
+                        np.append(df_cells, df_V, axis=1), I_volume, axis=1
+                    )
+
+                dfs = np.delete(dfs, invalidIndices, axis=0)
+                params = np.delete(params, invalidIndices, axis=0)
+                print("Read data in the form of: ", dfs.shape)
+
+                return dfs, params
 
     def prepare_input(self, forward_dict):
         """Function to self.configure the simulated quantities (i.e., simulator outputs)

@@ -4,6 +4,7 @@ from subprocess import Popen, PIPE, STDOUT
 import numpy as np
 import time
 from pandas import read_csv
+from Utility import timeit
 from contextlib import redirect_stdout, redirect_stderr
 
 
@@ -13,6 +14,7 @@ class SimulationRunner:
         self.workdir = workdir
         self.dataReader = dataReader
 
+    @timeit
     def run_morpheus(self, params):
         with open(os.path.join(self.workdir, "log_morpheus.txt"), "w") as logfile:
             with redirect_stderr(logfile), redirect_stdout(logfile):
@@ -85,7 +87,6 @@ class SimulationRunner:
                 v_path = os.path.join(OUT, "logger_6_Ve.csv")
                 v = self.dataReader.calculate_V(v_path)
                 sim = np.append(df_cells, v, axis=1)
-
                 I_volume = self.dataReader.calculate_volume(OUT)[
                     self.config.cut_off_start
                     + 1 : self.config.timesteps

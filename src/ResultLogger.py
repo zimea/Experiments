@@ -3,13 +3,27 @@ from matplotlib import pyplot as plt
 
 
 class ResultLogger:
-    def __init__(self, workdir, trainer, losses, config, prior, diag):
+    def __init__(
+        self,
+        workdir,
+        trainer,
+        losses,
+        config,
+        prior,
+        diag,
+        model,
+        configurator,
+        amortizer,
+    ):
         self.workdir = workdir
         self.trainer = trainer
         self.losses = losses
         self.config = config
         self.prior = prior
         self.diag = diag
+        self.model = model
+        self.configurator = configurator
+        self.amortizer = amortizer
 
         self.output_dir = os.path.abspath(os.path.join(workdir, config.plots))
 
@@ -20,11 +34,11 @@ class ResultLogger:
 
     def __runResimulations__(self):
         res = {}
-        res["raw_sims"] = self.trainer.generative_model(
+        res["raw_sims"] = self.model(
             batch_size=self.config.resimulation_param["simulations"]
         )
-        res["validation_sims"] = self.trainer.configurator(res["raw_sims"])
-        res["post_samples"] = self.trainer.amortizer.sample(
+        res["validation_sims"] = self.configurator(res["raw_sims"])
+        res["post_samples"] = self.amortizer.sample(
             res["validation_sims"], self.config.resimulation_param["post_samples"]
         )
         res["post_samples_unnorm"] = (

@@ -129,5 +129,3 @@ dmypy.json
 .pyre/
 
 venv_experiments/*
-
-experiments/

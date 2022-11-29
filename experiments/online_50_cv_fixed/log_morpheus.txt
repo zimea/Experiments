@@ -1,0 +1,708 @@
+Setting output directory /home/l/projects/Morpheus/Modelle/cell_free_50/output_fixed_cv_wm_trial/DV-999_bcf-0.4448164585050456_pi-0.6365292797709687_cv-0.33
+Initializing from file /home/l/projects/Morpheus/Modelle/cell_free_50/model/cell_free_50_DV-wm_30_8.xml
+Registering Symbol time of linktype TimeLink in Scope root
+Time/RandomSeed not specified, using arbitray seed (based on time).
+Random seed of master thread = 1668431721
+Random seed of thread 8 = 7677288
+Random seed of thread 12 = 7289360
+Random seed of thread 2 = 2230768
+Random seed of thread 6 = 7771967
+Random seed of thread 4 = 3935517
+Random seed of thread 10 = 6978036
+Random seed of thread 14 = 6803472
+Random seed of thread 5 = 8189417
+Random seed of thread 9 = 4537126
+Random seed of thread 1 = 7383944
+Random seed of thread 13 = 9488547
+Random seed of thread 15 = 7966563
+Random seed of thread 7 = 3048488
+Random seed of thread 3 = 1357539
+Random seed of thread 11 = 3298827
+Registering Symbol space of linktype LocationLink in Scope root
+Registering Symbol space.x of linktype VectorComponentLink in Scope root
+Registering Symbol space.y of linktype VectorComponentLink in Scope root
+Registering Symbol space.z of linktype VectorComponentLink in Scope root
+Registering Symbol space.phi of linktype VectorComponentLink in Scope root
+Registering Symbol space.theta of linktype VectorComponentLink in Scope root
+Registering Symbol space.abs of linktype VectorComponentLink in Scope root
+Creating lattice
+getXMLAttribute: seeking for Lattice->class: square
+getXMLAttribute: seeking for Size->value: 10, 10,   0.0
+getXMLAttribute: seeking for Size->symbol: size
+Registering Symbol size of linktype PrimitiveVariable in Scope root
+Registering Symbol size.x of linktype VectorComponentLink in Scope root
+Registering Symbol size.y of linktype VectorComponentLink in Scope root
+Registering Symbol size.z of linktype VectorComponentLink in Scope root
+Registering Symbol size.phi of linktype VectorComponentLink in Scope root
+Registering Symbol size.theta of linktype VectorComponentLink in Scope root
+Registering Symbol size.abs of linktype VectorComponentLink in Scope root
+Loading [9] Global Plugins
+getXMLAttribute: seeking for Constant->name: cell-free transmission rate
+getXMLAttribute: seeking for Constant->symbol: b_cf
+getXMLAttribute: seeking for Constant->value: 0
+getXMLAttribute: seeking for Constant->notation .. not found
+Registering Symbol b_cf of linktype ConstantLink in Scope root
+getXMLAttribute: seeking for Constant->name .. not found
+getXMLAttribute: seeking for Constant->symbol: D_V
+getXMLAttribute: seeking for Constant->value: 0.0
+getXMLAttribute: seeking for Constant->notation .. not found
+Registering Symbol D_V of linktype ConstantLink in Scope root
+getXMLAttribute: seeking for Field->symbol: Ve
+Registering Symbol Ve of linktype FieldLink in Scope root
+getXMLAttribute: seeking for System->time-step: 1.0
+Creating subscope System in scope root
+getXMLAttribute: seeking for System->solver: Runge-Kutta [fixed, O(4)]
+getXMLAttribute: seeking for System->solver-eps .. not found
+getXMLAttribute: seeking for Constant->name: virus production
+getXMLAttribute: seeking for Constant->symbol: V
+getXMLAttribute: seeking for Constant->value: 0.0
+getXMLAttribute: seeking for Constant->notation .. not found
+Registering Symbol V of linktype ConstantLink in Scope root
+getXMLAttribute: seeking for Event->delay .. not found
+getXMLAttribute: seeking for Event->compute-time .. not found
+getXMLAttribute: seeking for Event->trigger .. not found
+getXMLAttribute: seeking for Condition->history .. not found
+getXMLAttribute: seeking for Event->persistent .. not found
+Scope: Creating Accessor for symbol 'time' from Scope root
+Creating subscope System in scope root
+getXMLAttribute: seeking for Rule->symbol-ref: run_model
+getXMLAttribute: seeking for Expression->text: 1
+getXMLAttribute: seeking for Variable->name .. not found
+getXMLAttribute: seeking for Variable->symbol: run_model
+getXMLAttribute: seeking for Variable->value: 0
+getXMLAttribute: seeking for Variable->notation .. not found
+Registering Symbol run_model of linktype VariableLink in Scope root
+getXMLAttribute: seeking for Constant->name: clearance rate of extracellular virus
+getXMLAttribute: seeking for Constant->symbol: c_V
+getXMLAttribute: seeking for Constant->value: 0.0
+getXMLAttribute: seeking for Constant->notation .. not found
+Registering Symbol c_V of linktype ConstantLink in Scope root
+getXMLAttribute: seeking for Constant->name: virus export rate
+getXMLAttribute: seeking for Constant->symbol: p_V
+getXMLAttribute: seeking for Constant->value: 0
+getXMLAttribute: seeking for Constant->notation .. not found
+Registering Symbol p_V of linktype ConstantLink in Scope root
+Creating subscope CellType[target] in scope root
+Registering Symbol cell.type of linktype PrimitiveConstant in Scope CellType[target]
+Registering Symbol cell.type of linktype CompositeLink in Scope root
+Registering Symbol cell.id of linktype CellIDLink in Scope CellType[target]
+Registering Symbol cell.id of linktype CompositeLink in Scope root
+Registering Symbol cell.center of linktype CellCenterLink in Scope CellType[target]
+Registering Symbol cell.center of linktype CompositeLink in Scope root
+Registering Symbol cell.center.x of linktype VectorComponentLink in Scope root
+Registering Symbol cell.center.y of linktype VectorComponentLink in Scope root
+Registering Symbol cell.center.z of linktype VectorComponentLink in Scope root
+Registering Symbol cell.center.phi of linktype VectorComponentLink in Scope root
+Registering Symbol cell.center.theta of linktype VectorComponentLink in Scope root
+Registering Symbol cell.center.abs of linktype VectorComponentLink in Scope root
+Registering Symbol cell.center.x of linktype VectorComponentLink in Scope CellType[target]
+Registering Symbol cell.center.y of linktype VectorComponentLink in Scope CellType[target]
+Registering Symbol cell.center.z of linktype VectorComponentLink in Scope CellType[target]
+Registering Symbol cell.center.phi of linktype VectorComponentLink in Scope CellType[target]
+Registering Symbol cell.center.theta of linktype VectorComponentLink in Scope CellType[target]
+Registering Symbol cell.center.abs of linktype VectorComponentLink in Scope CellType[target]
+Registering Symbol cell.volume of linktype CellVolumeLink in Scope CellType[target]
+Registering Symbol cell.volume of linktype CompositeLink in Scope root
+Registering Symbol cell.length of linktype CellLengthLink in Scope CellType[target]
+Registering Symbol cell.length of linktype CompositeLink in Scope root
+Registering Symbol cell.surface of linktype CellInterfaceLengthLink in Scope CellType[target]
+Registering Symbol cell.surface of linktype CompositeLink in Scope root
+Registering Symbol cell.orientation of linktype CellOrientationLink in Scope CellType[target]
+Registering Symbol cell.orientation of linktype CompositeLink in Scope root
+Registering Symbol cell.orientation.x of linktype VectorComponentLink in Scope root
+Registering Symbol cell.orientation.y of linktype VectorComponentLink in Scope root
+Registering Symbol cell.orientation.z of linktype VectorComponentLink in Scope root
+Registering Symbol cell.orientation.phi of linktype VectorComponentLink in Scope root
+Registering Symbol cell.orientation.theta of linktype VectorComponentLink in Scope root
+Registering Symbol cell.orientation.abs of linktype VectorComponentLink in Scope root
+Registering Symbol cell.orientation.x of linktype VectorComponentLink in Scope CellType[target]
+Registering Symbol cell.orientation.y of linktype VectorComponentLink in Scope CellType[target]
+Registering Symbol cell.orientation.z of linktype VectorComponentLink in Scope CellType[target]
+Registering Symbol cell.orientation.phi of linktype VectorComponentLink in Scope CellType[target]
+Registering Symbol cell.orientation.theta of linktype VectorComponentLink in Scope CellType[target]
+Registering Symbol cell.orientation.abs of linktype VectorComponentLink in Scope CellType[target]
+Registering Symbol celltype.target.id of linktype PrimitiveConstant in Scope root
+Registering Symbol celltype.target.size of linktype CellPopulationSizeLink in Scope root
+Creating subscope CellType[infected] in scope root
+Registering Symbol cell.type of linktype PrimitiveConstant in Scope CellType[infected]
+Registering Symbol cell.id of linktype CellIDLink in Scope CellType[infected]
+Registering Symbol cell.center of linktype CellCenterLink in Scope CellType[infected]
+Registering Symbol cell.center.x of linktype VectorComponentLink in Scope CellType[infected]
+Registering Symbol cell.center.y of linktype VectorComponentLink in Scope CellType[infected]
+Registering Symbol cell.center.z of linktype VectorComponentLink in Scope CellType[infected]
+Registering Symbol cell.center.phi of linktype VectorComponentLink in Scope CellType[infected]
+Registering Symbol cell.center.theta of linktype VectorComponentLink in Scope CellType[infected]
+Registering Symbol cell.center.abs of linktype VectorComponentLink in Scope CellType[infected]
+Registering Symbol cell.volume of linktype CellVolumeLink in Scope CellType[infected]
+Registering Symbol cell.length of linktype CellLengthLink in Scope CellType[infected]
+Registering Symbol cell.surface of linktype CellInterfaceLengthLink in Scope CellType[infected]
+Registering Symbol cell.orientation of linktype CellOrientationLink in Scope CellType[infected]
+Registering Symbol cell.orientation.x of linktype VectorComponentLink in Scope CellType[infected]
+Registering Symbol cell.orientation.y of linktype VectorComponentLink in Scope CellType[infected]
+Registering Symbol cell.orientation.z of linktype VectorComponentLink in Scope CellType[infected]
+Registering Symbol cell.orientation.phi of linktype VectorComponentLink in Scope CellType[infected]
+Registering Symbol cell.orientation.theta of linktype VectorComponentLink in Scope CellType[infected]
+Registering Symbol cell.orientation.abs of linktype VectorComponentLink in Scope CellType[infected]
+Registering Symbol celltype.infected.id of linktype PrimitiveConstant in Scope root
+Registering Symbol celltype.infected.size of linktype CellPopulationSizeLink in Scope root
+getXMLAttribute: seeking for Property->name: viral load
+getXMLAttribute: seeking for Property->symbol: V
+getXMLAttribute: seeking for Property->value: 0.0
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol V of linktype CellPropertyLink in Scope CellType[target]
+Registering Symbol V of linktype CompositeLink in Scope root
+getXMLAttribute: seeking for VolumeConstraint->target: 2
+getXMLAttribute: seeking for VolumeConstraint->strength: 1
+getXMLAttribute: seeking for SurfaceConstraint->target: 1
+getXMLAttribute: seeking for SurfaceConstraint->strength: 3
+getXMLAttribute: seeking for SurfaceConstraint->mode: aspherity
+getXMLAttribute: seeking for SurfaceConstraint->exponent .. not found
+getXMLAttribute: seeking for Condition->text: rand_uni(0,1) <= p_cf and run_model==1
+getXMLAttribute: seeking for ChangeCellType->newCellType: infected
+Creating subscope System in scope CellType[infected]
+getXMLAttribute: seeking for Rule->symbol-ref: V
+getXMLAttribute: seeking for Expression->text: 1
+Creating subscope Function in scope CellType[target]
+getXMLAttribute: seeking for Function->symbol: p_cf
+getXMLAttribute: seeking for Expression->text: 1-exp(-b_cf*Vi)
+Registering Symbol p_cf of linktype FunctionLink in Scope CellType[target]
+Registering Symbol p_cf of linktype CompositeLink in Scope root
+getXMLAttribute: seeking for Property->name: viral load per cell
+getXMLAttribute: seeking for Property->symbol: Vi
+getXMLAttribute: seeking for Property->value: 0.0
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol Vi of linktype CellPropertyLink in Scope CellType[target]
+Registering Symbol Vi of linktype CompositeLink in Scope root
+getXMLAttribute: seeking for Input->value: Ve
+getXMLAttribute: seeking for Polarity->symbol-ref .. not found
+getXMLAttribute: seeking for Output[0]->mapping: sum
+getXMLAttribute: seeking for Output[0]->symbol-ref: Vi
+getXMLAttribute: seeking for Condition->text: run_model == 1
+getXMLAttribute: seeking for Property->name: viral load
+getXMLAttribute: seeking for Property->symbol: V
+getXMLAttribute: seeking for Property->value: 1
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol V of linktype CellPropertyLink in Scope CellType[infected]
+getXMLAttribute: seeking for VolumeConstraint->target: 2
+getXMLAttribute: seeking for VolumeConstraint->strength: 1
+getXMLAttribute: seeking for SurfaceConstraint->target: 1
+getXMLAttribute: seeking for SurfaceConstraint->strength: 3
+getXMLAttribute: seeking for SurfaceConstraint->mode: aspherity
+getXMLAttribute: seeking for SurfaceConstraint->exponent .. not found
+getXMLAttribute: seeking for Condition->text: run_model == 1
+getXMLAttribute: seeking for Input->value: Ve
+getXMLAttribute: seeking for Polarity->symbol-ref .. not found
+getXMLAttribute: seeking for Output[0]->mapping: sum
+getXMLAttribute: seeking for Output[0]->symbol-ref: Vi
+getXMLAttribute: seeking for Property->name: viral load per cell
+getXMLAttribute: seeking for Property->symbol: Vi
+getXMLAttribute: seeking for Property->value: 0.0
+getXMLAttribute: seeking for Property->notation .. not found
+Registering Symbol Vi of linktype CellPropertyLink in Scope CellType[infected]
+CellTypes defined: 'infected' 'target' 
+Creating subscope CellType[Medium] in scope root
+Registering Symbol cell.type of linktype PrimitiveConstant in Scope CellType[Medium]
+Registering Symbol cell.id of linktype CellIDLink in Scope CellType[Medium]
+Registering Symbol cell.center of linktype CellCenterLink in Scope CellType[Medium]
+Registering Symbol cell.center.x of linktype VectorComponentLink in Scope CellType[Medium]
+Registering Symbol cell.center.y of linktype VectorComponentLink in Scope CellType[Medium]
+Registering Symbol cell.center.z of linktype VectorComponentLink in Scope CellType[Medium]
+Registering Symbol cell.center.phi of linktype VectorComponentLink in Scope CellType[Medium]
+Registering Symbol cell.center.theta of linktype VectorComponentLink in Scope CellType[Medium]
+Registering Symbol cell.center.abs of linktype VectorComponentLink in Scope CellType[Medium]
+getXMLAttribute: seeking for MonteCarloSampler/MCSDuration->value: 1
+getXMLAttribute: seeking for MonteCarloSampler/MCSDuration->symbol .. not found
+getXMLAttribute: seeking for MonteCarloSampler->stepper: edgelist
+getXMLAttribute: seeking for MonteCarloSampler/MetropolisKinetics->temperature: 1
+getXMLAttribute: seeking for MonteCarloSampler/MetropolisKinetics->yield .. not found
+Creating cell layer with initial state set to CellType 'Medium'
+LDL getLattice
+Scope: Creating Accessor for symbol 'cell.center' from Scope root
+Scope: Creating Accessor for symbol 'cell.volume' from Scope root
+Scope: Creating Accessor for symbol 'cell.surface' from Scope root
+Scope: Creating Accessor for symbol 'cell.length' from Scope root
+Scope: Creating Accessor for symbol 'cell.type' from Scope root
+LDL getLattice
+EdgeListTracker::init() : Created Tracker with Neighborhood size 8
+EdgeListTracker::init() : Found 0 initial edges, wherof 0 can be modified.
+CPM: InteractionEnergy has 28 neighbors
+CPM: InteractionEnergy was initialized with  IA_COLLAPSE 
+getXMLAttribute: seeking for InitDistribute->number-of-cells: 49
+getXMLAttribute: seeking for InitDistribute->probability: 0.1
+getXMLAttribute: seeking for InitDistribute->mode: random
+getXMLAttribute: seeking for InitDistribute->number-of-cells: 1
+getXMLAttribute: seeking for InitDistribute->probability: 0.1
+getXMLAttribute: seeking for InitDistribute->mode: random
+Initializing celltype 'target'
+Scope: Creating Accessor for symbol 'b_cf' from Scope root
+Scope: Creating Accessor for symbol 'Vi' from Scope CellType[target]
+ConnectivityConstraint: 1, 0, 0 a 0 d1
+ConnectivityConstraint: 1, 1, 0 a 0.785398 d1.41421
+ConnectivityConstraint: 0, 1, 0 a 1.5708 d1
+ConnectivityConstraint: -1, 1, 0 a 2.35619 d1.41421
+ConnectivityConstraint: -1, 0, 0 a 3.14159 d1
+ConnectivityConstraint: -1, -1, 0 a 3.92699 d1.41421
+ConnectivityConstraint: 0, -1, 0 a 4.71239 d1
+ConnectivityConstraint: 1, -1, 0 a 5.49779 d1.41421
+ConnectivityConstraint: Found 4 first order neighbors
+Scope: Creating Accessor for symbol 'p_cf' from Scope CellType[target]
+Scope: Creating Accessor for symbol 'run_model' from Scope root
+Plugin ChangeCellType: Registered input symbol dependencies run_model [root] ,p_cf [CellType[target]] ,
+Scope: Creating Accessor for symbol 'V' from Scope CellType[infected]
+System::init: Reordering Initializers ...
+Scope: Creating Accessor for symbol 'Ve' from Scope root
+Expression Ve is a symbol
+Scope: Creating Accessor for symbol 'Vi' from Scope CellType[target]
+Plugin Mapper: Registered input symbol dependencies Ve [root] ,
+PluginMapper: Registered output symbol dependencies Vi [CellType[target]] ,
+Scope: Creating Accessor for symbol 'cell.center' from Scope CellType[target]
+Scope: Creating Accessor for symbol 'run_model' from Scope root
+Plugin FreezeMotion: Registered input symbol dependencies run_model [root] ,
+InitDistribute requests 49 to be created
+successfully created 49 cells.
+Cells 49 requested 49
+Initializing celltype 'infected'
+ConnectivityConstraint: 1, 0, 0 a 0 d1
+ConnectivityConstraint: 1, 1, 0 a 0.785398 d1.41421
+ConnectivityConstraint: 0, 1, 0 a 1.5708 d1
+ConnectivityConstraint: -1, 1, 0 a 2.35619 d1.41421
+ConnectivityConstraint: -1, 0, 0 a 3.14159 d1
+ConnectivityConstraint: -1, -1, 0 a 3.92699 d1.41421
+ConnectivityConstraint: 0, -1, 0 a 4.71239 d1
+ConnectivityConstraint: 1, -1, 0 a 5.49779 d1.41421
+ConnectivityConstraint: Found 4 first order neighbors
+Scope: Creating Accessor for symbol 'run_model' from Scope root
+Plugin FreezeMotion: Registered input symbol dependencies run_model [root] ,
+Scope: Creating Accessor for symbol 'Ve' from Scope root
+Expression Ve is a symbol
+Scope: Creating Accessor for symbol 'Vi' from Scope CellType[infected]
+Warning: Could not initialize default property Vi of celltype infected.
+Plugin Mapper: Registered input symbol dependencies Ve [root] ,
+PluginMapper: Registered output symbol dependencies Vi [CellType[infected]] ,
+Scope: Creating Accessor for symbol 'cell.center' from Scope CellType[infected]
+InitDistribute requests 1 to be created
+successfully created 1 cells.
+Cells 1 requested 1
+Initializing celltype 'Medium'
+Max diffusion step is -1
+Scope: Creating Accessor for symbol 'Ve' from Scope root
+Scope: Creating Accessor for symbol 'p_V' from Scope root
+Scope: Creating Accessor for symbol 'V' from Scope root
+Scope: Creating Accessor for symbol 'c_V' from Scope root
+Scope: Creating Accessor for symbol 'run_model' from Scope root
+System::init: Reordering Initializers ...
+Plugin Event: Registered input symbol dependencies time [root] ,
+Scope: Creating Accessor for symbol 'run_model' from Scope root
+System::init: Reordering Initializers ...
+Scope: Creating Accessor for symbol 'time' from Scope root
+Loading Analysis tools [8]
+getXMLAttribute: seeking for ModelGraph->format: dot
+getXMLAttribute: seeking for ModelGraph->reduced: false
+getXMLAttribute: seeking for ModelGraph->exclude-symbols .. not found
+getXMLAttribute: seeking for ModelGraph->include-tags: #untagged
+getXMLAttribute: seeking for Gnuplotter->file-numbering .. not found
+getXMLAttribute: seeking for Terminal->name: png
+getXMLAttribute: seeking for Terminal->size .. not found
+getXMLAttribute: seeking for Gnuplotter->time-step: 50
+getXMLAttribute: seeking for Cells->value: cell.type
+getXMLAttribute: seeking for CellLabels->value: V
+getXMLAttribute: seeking for Input/Symbol[0]->symbol-ref: V
+getXMLAttribute: seeking for Restriction/Slice->value .. not found
+getXMLAttribute: seeking for Restriction/Slice->axis .. not found
+getXMLAttribute: seeking for Restriction/Celltype->celltype .. not found
+getXMLAttribute: seeking for Restriction/Cells->cell-ids .. not found
+getXMLAttribute: seeking for Restriction->domain-only .. not found
+getXMLAttribute: seeking for Restriction->condition .. not found
+getXMLAttribute: seeking for Input->force-node-granularity .. not found
+getXMLAttribute: seeking for Restriction->exclude-medium .. not found
+getXMLAttribute: seeking for Output/TextOutput->header .. not found
+getXMLAttribute: seeking for Output/TextOutput->header-guarding .. not found
+getXMLAttribute: seeking for Output/TextOutput->separator .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-name .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-numbering .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-separation .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-format .. not found
+getXMLAttribute: seeking for Logger->time-step: 1.0
+getXMLAttribute: seeking for Input/Symbol[0]->symbol-ref: celltype.target.size
+getXMLAttribute: seeking for Input/Symbol[1]->symbol-ref: celltype.infected.size
+getXMLAttribute: seeking for Restriction/Slice->value .. not found
+getXMLAttribute: seeking for Restriction/Slice->axis .. not found
+getXMLAttribute: seeking for Restriction/Celltype->celltype .. not found
+getXMLAttribute: seeking for Restriction/Cells->cell-ids .. not found
+getXMLAttribute: seeking for Restriction->domain-only .. not found
+getXMLAttribute: seeking for Restriction->condition .. not found
+getXMLAttribute: seeking for Input->force-node-granularity .. not found
+getXMLAttribute: seeking for Restriction->exclude-medium .. not found
+getXMLAttribute: seeking for Output/TextOutput->header .. not found
+getXMLAttribute: seeking for Output/TextOutput->header-guarding .. not found
+getXMLAttribute: seeking for Output/TextOutput->separator .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-name .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-numbering .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-separation .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-format .. not found
+getXMLAttribute: seeking for Logger->time-step: 1.0
+getXMLAttribute: seeking for Input/Symbol[0]->symbol-ref: cell.id
+getXMLAttribute: seeking for Input/Symbol[1]->symbol-ref: cell.type
+getXMLAttribute: seeking for Input/Symbol[2]->symbol-ref: cell.center.x
+getXMLAttribute: seeking for Input/Symbol[3]->symbol-ref: cell.center.y
+getXMLAttribute: seeking for Input/Symbol[4]->symbol-ref: Vi
+getXMLAttribute: seeking for Restriction/Slice->value .. not found
+getXMLAttribute: seeking for Restriction/Slice->axis .. not found
+getXMLAttribute: seeking for Restriction/Celltype->celltype .. not found
+getXMLAttribute: seeking for Restriction/Cells->cell-ids .. not found
+getXMLAttribute: seeking for Restriction->domain-only .. not found
+getXMLAttribute: seeking for Restriction->condition .. not found
+getXMLAttribute: seeking for Input->force-node-granularity .. not found
+getXMLAttribute: seeking for Restriction->exclude-medium .. not found
+getXMLAttribute: seeking for Output/TextOutput->header .. not found
+getXMLAttribute: seeking for Output/TextOutput->header-guarding .. not found
+getXMLAttribute: seeking for Output/TextOutput->separator .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-name .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-numbering .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-separation .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-format .. not found
+getXMLAttribute: seeking for Logger->time-step: 1.0
+getXMLAttribute: seeking for Input/Symbol[0]->symbol-ref: space.x
+getXMLAttribute: seeking for Input/Symbol[1]->symbol-ref: space.y
+getXMLAttribute: seeking for Input/Symbol[2]->symbol-ref: cell.id
+getXMLAttribute: seeking for Restriction/Slice->value .. not found
+getXMLAttribute: seeking for Restriction/Slice->axis .. not found
+getXMLAttribute: seeking for Restriction/Celltype->celltype .. not found
+getXMLAttribute: seeking for Restriction/Cells->cell-ids .. not found
+getXMLAttribute: seeking for Restriction->domain-only .. not found
+getXMLAttribute: seeking for Restriction->condition .. not found
+getXMLAttribute: seeking for Input->force-node-granularity .. not found
+getXMLAttribute: seeking for Restriction->exclude-medium .. not found
+getXMLAttribute: seeking for Output/TextOutput->header .. not found
+getXMLAttribute: seeking for Output/TextOutput->header-guarding .. not found
+getXMLAttribute: seeking for Output/TextOutput->separator .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-name .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-numbering .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-separation .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-format .. not found
+getXMLAttribute: seeking for Logger->time-step: 1.0
+getXMLAttribute: seeking for Input/Symbol[0]->symbol-ref: b_cf
+getXMLAttribute: seeking for Input/Symbol[1]->symbol-ref: c_V
+getXMLAttribute: seeking for Input/Symbol[2]->symbol-ref: D_V
+getXMLAttribute: seeking for Input/Symbol[3]->symbol-ref: p_V
+getXMLAttribute: seeking for Restriction/Slice->value .. not found
+getXMLAttribute: seeking for Restriction/Slice->axis .. not found
+getXMLAttribute: seeking for Restriction/Celltype->celltype .. not found
+getXMLAttribute: seeking for Restriction/Cells->cell-ids .. not found
+getXMLAttribute: seeking for Restriction->domain-only .. not found
+getXMLAttribute: seeking for Restriction->condition .. not found
+getXMLAttribute: seeking for Input->force-node-granularity .. not found
+getXMLAttribute: seeking for Restriction->exclude-medium .. not found
+getXMLAttribute: seeking for Output/TextOutput->header .. not found
+getXMLAttribute: seeking for Output/TextOutput->header-guarding .. not found
+getXMLAttribute: seeking for Output/TextOutput->separator .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-name .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-numbering .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-separation .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-format .. not found
+getXMLAttribute: seeking for Logger->time-step: 1000
+getXMLAttribute: seeking for Input/Symbol[0]->symbol-ref: Ve
+getXMLAttribute: seeking for Restriction/Slice->value .. not found
+getXMLAttribute: seeking for Restriction/Slice->axis .. not found
+getXMLAttribute: seeking for Restriction/Celltype->celltype .. not found
+getXMLAttribute: seeking for Restriction/Cells->cell-ids .. not found
+getXMLAttribute: seeking for Restriction->domain-only .. not found
+getXMLAttribute: seeking for Restriction->condition .. not found
+getXMLAttribute: seeking for Input->force-node-granularity .. not found
+getXMLAttribute: seeking for Restriction->exclude-medium .. not found
+getXMLAttribute: seeking for Output/TextOutput->header .. not found
+getXMLAttribute: seeking for Output/TextOutput->header-guarding .. not found
+getXMLAttribute: seeking for Output/TextOutput->separator .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-name .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-numbering .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-separation .. not found
+getXMLAttribute: seeking for Output/TextOutput->file-format .. not found
+getXMLAttribute: seeking for Logger->time-step: 1.0
+Scope: Creating Accessor for symbol 'cell.type' from Scope root
+Scope: Creating Accessor for symbol 'V' from Scope root
+Expression V is a symbol
+Scope: Creating Accessor for symbol 'V' from Scope root
+Plugin Logger: Registered input symbol dependencies V [root] ,
+Logger range:
+-> size 50
+-> dataAxes 1
+-> data.sizes: 50, 
+Scope: Creating Accessor for symbol 'time' from Scope root
+Scope: Creating Accessor for symbol 'cell.id' from Scope root
+Scope: Creating Accessor for symbol 'celltype.target.size' from Scope root
+Scope: Creating Accessor for symbol 'celltype.infected.size' from Scope root
+Plugin Logger: Registered input symbol dependencies celltype.target.size [root] ,celltype.infected.size [root] ,
+Scope: Creating Accessor for symbol 'celltype.target.size' from Scope root
+Scope: Creating Accessor for symbol 'celltype.infected.size' from Scope root
+Logger range:
+-> size 1
+-> dataAxes 0
+-> data.sizes: 1, 
+Scope: Creating Accessor for symbol 'time' from Scope root
+Scope: Creating Accessor for symbol 'cell.id' from Scope root
+Scope: Creating Accessor for symbol 'cell.type' from Scope root
+Scope: Creating Accessor for symbol 'cell.center.x' from Scope root
+Scope: Creating Accessor for symbol 'cell.center.y' from Scope root
+Scope: Creating Accessor for symbol 'Vi' from Scope root
+Plugin Logger: Registered input symbol dependencies cell.type [root] ,cell.center.x [root] ,cell.center.y [root] ,cell.id [root] ,Vi [root] ,
+Logger range:
+-> size 50
+-> dataAxes 1
+-> data.sizes: 50, 
+Scope: Creating Accessor for symbol 'time' from Scope root
+Scope: Creating Accessor for symbol 'cell.id' from Scope root
+Scope: Creating Accessor for symbol 'space.x' from Scope root
+Scope: Creating Accessor for symbol 'space.y' from Scope root
+Scope: Creating Accessor for symbol 'cell.id' from Scope root
+Plugin Logger: Registered input symbol dependencies space.y [root] ,space.x [root] ,cell.id [root] ,
+Scope: Creating Accessor for symbol 'space.x' from Scope root
+Scope: Creating Accessor for symbol 'space.y' from Scope root
+Scope: Creating Accessor for symbol 'cell.id' from Scope root
+Logger range:
+-> size 100
+-> dataAxes 2
+-> data.sizes: 10, 10, 
+Scope: Creating Accessor for symbol 'b_cf' from Scope root
+Scope: Creating Accessor for symbol 'c_V' from Scope root
+Scope: Creating Accessor for symbol 'D_V' from Scope root
+Scope: Creating Accessor for symbol 'p_V' from Scope root
+Plugin Logger: Registered input symbol dependencies b_cf [root] ,D_V [root] ,c_V [root] ,p_V [root] ,
+Scope: Creating Accessor for symbol 'b_cf' from Scope root
+Scope: Creating Accessor for symbol 'c_V' from Scope root
+Scope: Creating Accessor for symbol 'D_V' from Scope root
+Scope: Creating Accessor for symbol 'p_V' from Scope root
+Logger range:
+-> size 1
+-> dataAxes 0
+-> data.sizes: 1, 
+Scope: Creating Accessor for symbol 'time' from Scope root
+Scope: Creating Accessor for symbol 'Ve' from Scope root
+Plugin Logger: Registered input symbol dependencies Ve [root] ,
+Scope: Creating Accessor for symbol 'Ve' from Scope root
+Logger range:
+-> size 100
+-> dataAxes 2
+-> data.sizes: 10, 10, 
+CPM
+registering writer CPM on symbol cell.type in Scope CellType[target]
+registering writer CPM on symbol cell.center in Scope CellType[target]
+registering writer CPM on symbol cell.volume in Scope CellType[target]
+registering writer CPM on symbol cell.length in Scope CellType[target]
+registering writer CPM on symbol cell.surface in Scope CellType[target]
+registering writer CPM on symbol cell.type in Scope CellType[infected]
+registering writer CPM on symbol cell.center in Scope CellType[infected]
+registering writer CPM on symbol cell.volume in Scope CellType[infected]
+registering writer CPM on symbol cell.length in Scope CellType[infected]
+registering writer CPM on symbol cell.surface in Scope CellType[infected]
+registering writer CPM on symbol cell.type in Scope CellType[Medium]
+registering writer CPM on symbol cell.center in Scope CellType[Medium]
+ChangeCellType
+registering reader ChangeCellType on symbol b_cf in Scope root
+registering reader ChangeCellType on symbol run_model in Scope root
+registering reader ChangeCellType on symbol Vi in Scope CellType[target]
+Mapper
+registering reader Mapper on symbol Ve in Scope root
+registering reader Mapper on symbol cell.center in Scope CellType[target]
+registering writer Mapper on symbol Vi in Scope CellType[target]
+Mapper
+registering reader Mapper on symbol Ve in Scope root
+registering reader Mapper on symbol cell.center in Scope CellType[infected]
+registering writer Mapper on symbol Vi in Scope CellType[infected]
+Diffusion
+registering reader Diffusion on symbol Ve in Scope root
+registering writer Diffusion on symbol Ve in Scope root
+System
+registering reader System on symbol V in Scope root
+registering reader System on symbol run_model in Scope root
+registering reader System on symbol c_V in Scope root
+registering reader System on symbol p_V in Scope root
+registering reader System on symbol V in Scope CellType[target]
+registering reader System on symbol V in Scope CellType[infected]
+registering writer System on symbol Ve in Scope root
+Event
+registering reader Event on symbol time in Scope root
+registering writer Event on symbol run_model in Scope root
+ModelGraph
+Gnuplotter
+registering reader Gnuplotter on symbol V in Scope root
+registering reader Gnuplotter on symbol cell.type in Scope CellType[target]
+registering reader Gnuplotter on symbol cell.type in Scope CellType[infected]
+registering reader Gnuplotter on symbol V in Scope CellType[target]
+registering reader Gnuplotter on symbol V in Scope CellType[infected]
+registering reader Gnuplotter on symbol cell.type in Scope CellType[Medium]
+Logger
+registering reader Logger on symbol V in Scope root
+registering reader Logger on symbol V in Scope CellType[target]
+registering reader Logger on symbol V in Scope CellType[infected]
+Logger
+registering reader Logger on symbol celltype.target.size in Scope root
+registering reader Logger on symbol celltype.infected.size in Scope root
+Logger
+registering reader Logger on symbol cell.id in Scope CellType[target]
+registering reader Logger on symbol cell.type in Scope CellType[target]
+registering reader Logger on symbol cell.center in Scope CellType[target]
+registering reader Logger on symbol cell.type in Scope CellType[infected]
+registering reader Logger on symbol cell.id in Scope CellType[infected]
+registering reader Logger on symbol cell.center in Scope CellType[infected]
+registering reader Logger on symbol Vi in Scope CellType[target]
+registering reader Logger on symbol Vi in Scope CellType[infected]
+registering reader Logger on symbol cell.type in Scope CellType[Medium]
+registering reader Logger on symbol cell.id in Scope CellType[Medium]
+registering reader Logger on symbol cell.center in Scope CellType[Medium]
+Logger
+registering reader Logger on symbol space in Scope root
+registering reader Logger on symbol cell.id in Scope CellType[target]
+registering reader Logger on symbol cell.id in Scope CellType[infected]
+registering reader Logger on symbol cell.id in Scope CellType[Medium]
+Logger
+registering reader Logger on symbol b_cf in Scope root
+registering reader Logger on symbol D_V in Scope root
+registering reader Logger on symbol c_V in Scope root
+registering reader Logger on symbol p_V in Scope root
+Logger
+registering reader Logger on symbol Ve in Scope root
+
+ TimeStepListener "CPM" propagates its time step 1
+
+ TimeStepListener "ChangeCellType" propagates its time step 1
+
+ TimeStepListener "Mapper" propagates its time step 1
+
+ TimeStepListener "Diffusion" propagates its time step 1
+
+ TimeStepListener "System" propagates its time step 1
+
+ TimeStepListener "ModelGraph" propagates its time step 50
+
+ TimeStepListener "Gnuplotter" propagates its time step 50
+
+ TimeStepListener "Logger" propagates its time step 1
+
+ TimeStepListener "Logger" propagates its time step 1
+
+ TimeStepListener "Logger" propagates its time step 1
+
+ TimeStepListener "Logger" propagates its time step 1
+
+ TimeStepListener "Logger" propagates its time step 1000
+
+ TimeStepListener "Logger" propagates its time step 1
+TimeScheduler::init: Ordering instantaneous processes for sequential update ...
+ 
+======================================================
+ Time Schedule
+======================================================
+ Time precision patch is 0.001
+
+=====|    Phase I     |===============================
+-----. CPM .------------------------------------
+  + 1 => CPM [] -> [cell.center,cell.length,cell.surface,cell.type,cell.volume]
+-----. Reactions .------------------------------------
+  + 1 => System [extracellular viral load] [V,c_V,p_V,run_model] -> [Ve]
+-----. Diffusion .------------------------------------
+  + 1 => Diffusion [Ve] -> [Ve]
+
+=====|    Phase II    |===============================
+-----. Reporters and Instantaneous Processes.---------
+  + 1 => Mapper [extracellular to cellular viral load] [Ve,cell.center] -> [Vi]
+  + 1 => Mapper [extracellular to cellular viral load] [Ve,cell.center] -> [Vi]
+  + 1 => Event [time] -> [run_model]
+  + 1 => ChangeCellType [cell becomes infected] [p_cf,run_model] -> []
+
+=====|    Phase III   |===============================
+-----. Analysis .-------------------------------------
+  + 50 => ModelGraph [] 
+  + 50 => Gnuplotter [V,cell.type] 
+  + 1 => Logger [V] 
+  + 1 => Logger [celltype.infected.size,celltype.target.size] 
+  + 1 => Logger [Vi,cell.center.x,cell.center.y,cell.id,cell.type] 
+  + 1 => Logger [cell.id,space.x,space.y] 
+  + 1000 => Logger [D_V,b_cf,c_V,p_V] 
+  + 1 => Logger [Ve] 
+------------------------------------------------------
+======================================================
+
+model is up
+GnuPlotter: Saving plot_00000.png
+Time: 0.00 atu
+Time: 1 
+Time: 2 
+Time: 3 
+Time: 4 
+Time: 5 
+Time: 6 
+Time: 7 
+Time: 8 
+Time: 9 
+Time: 10 
+Time: 11 
+Time: 12 
+Time: 13 
+Time: 14 
+Time: 15 
+Time: 16 
+Time: 17 
+Time: 18 
+Time: 19 
+Time: 20 
+Time: 21 
+Time: 22 
+Time: 23 
+Time: 24 
+Time: 25 
+Time: 26 
+Time: 27 
+Time: 28 
+Time: 29 
+Time: 30 
+Time: 31 
+Time: 32 
+Time: 33 
+Time: 34 
+Time: 35 
+Time: 36 
+Time: 37 
+Time: 38 
+Time: 39 
+Time: 40 
+Time: 41 
+Time: 42 
+Time: 43 
+Time: 44 
+Time: 45 
+Time: 46 
+Time: 47 
+Time: 48 
+Time: 49 
+GnuPlotter: Saving plot_00050.png
+Time: 50 
+Now running Logger last run at 0.00
+
+=======================================================
+    SCHEDULER PERFORMANCE STATISTICS
+=======================================================
+
+    +  62.5% = 235.54ms (28.84)  | Initialisation []
+    +   6.7% = 25.35ms (313.86)  | Mapper [Ve,cell.center -> Vi]
+    +   5.6% = 21.13ms (301.20)  | Mapper [Ve,cell.center -> Vi]
+    +   4.1% = 15.45ms (226.95)  | Event [time -> run_model]
+    +   3.5% = 13.04ms (161.32)  | System [V,c_V,p_V,run_model -> Ve]
+    +   2.7% = 10.31ms (134.39)  | Logger [cell.id,space.x,space.y]
+    +   2.4% =  9.19ms (76.65)  | Logger [Vi,cell.center.x,cell.center.y,cell.id,cell.type]
+    +   1.5% =  5.71ms (16.01)  | CPM [cell.center,cell.length,cell.surface,cell.type,cell.volume]
+    +   1.2% =  4.68ms (29.67)  | Logger [V]
+    +   0.9% =  3.53ms (260.03)  | Logger [Ve]
+    +   0.5% =  1.71ms (11.76)  | Gnuplotter [V,cell.type]
+    +   0.3% =  0.98ms ( 1.01)  | ChangeCellType [p_cf,run_model]
+    +   0.2% =  0.92ms (14.65)  | ModelGraph []
+    +   0.2% =  0.65ms ( 0.65)  | Logger [celltype.infected.size,celltype.target.size]
+    +   0.0% =  0.09ms ( 0.09)  | Diffusion [Ve -> Ve]
+    +   0.0% =  0.06ms ( 0.05)  | Logger [D_V,b_cf,c_V,p_V]
+
+======================================================
+
+=== Simulation finished ===
+Wall Time   = 0s 376ms
+CPU Time    = 1s 610ms (16 threads)
+
+morpheus -f /home/l/projects/Morpheus/Modelle/cell_free_50/model/cell_free_50_DV-wm_30_8.xml -o /home/l/projects/Morpheus/Modelle/cell_free_50/output_fixed_cv_wm_trial/DV-999_bcf-0.4448164585050456_pi-0.6365292797709687_cv-0.33 -b_cf=0.4448164585050456 -c_V=0.33 -p_V=0.6365292797709687

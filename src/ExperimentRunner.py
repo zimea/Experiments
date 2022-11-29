@@ -1,6 +1,7 @@
 import argparse
 import sys, os
 import importlib.util
+import time
 
 parser = argparse.ArgumentParser(
     prog="ExperimentRunner",
@@ -11,7 +12,7 @@ parser.add_argument(
     "--workdir",
     type=str,
     help="path to the working directory for input and output",
-    default="/home/l/projects/Morpheus/Tutorial/Experiments/experiments/trial_1000",
+    default="/home/l/projects/Morpheus/Tutorial/Experiments/experiments/online_1000_cv_fixed/",
 )
 parser.add_argument(
     "-c", "--configfile", type=str, help="path to the config file", default="config.py"
@@ -48,16 +49,19 @@ import bayesflow.diagnostics as diag
 if __name__ == "__main__":
     with open(os.path.join(workdir, "log_training.txt"), "w") as logfile:
         with redirect_stdout(logfile), redirect_stderr(logfile):
+            logfile.write("Initialize prior")
             prior = Prior(prior_fun=config.prior_func, param_names=config.prior_names)
             prior_means, prior_stds = prior.estimate_means_and_stds()
             dataReader = DataReader(
                 config, prior_means=prior_means, prior_stds=prior_stds
             )
+            logfile.write("Initialize generative model")
             simulationRunner = SimulationRunner(config, workdir, dataReader)
 
             simulator = Simulator(simulator_fun=partial(simulationRunner.run_morpheus))
             model = GenerativeModel(prior, simulator, name=config.model_name)
 
+            logfile.write("Initialize amortizer")
             summary_net = config.summary_network
             inference_net = InvertibleNetwork(
                 {
@@ -68,6 +72,7 @@ if __name__ == "__main__":
             amortizer = AmortizedPosterior(
                 inference_net, summary_net, name=config.amortizer_name
             )
+            logfile.write("Initialize trainer")
             trainer = Trainer(
                 amortizer=amortizer,
                 generative_model=model,
@@ -75,17 +80,26 @@ if __name__ == "__main__":
                 checkpoint_path=os.path.join(workdir, config.checkpoints),
                 optional_stopping=config.optional_stopping,
             )
+            logfile.write("Initialization finished")
 
             match config.training_mode:
                 case "offline":
+                    logfile.write("Start reading data")
                     data, params = dataReader.read_offline_data(
-                        os.path.join(config.data_path, config.folder + "/*")
+                        os.path.join(config.data_path, config.folder + "/*"), workdir
                     )
+                    logfile.write("Finished reading data")
+                    logfile.write("Start training")
+                    start_time = time.time()
                     h = trainer.train_offline(
                         epochs=config.epochs,
                         batch_size=config.batch_size,
                         simulations_dict={"prior_draws": params, "sim_data": data},
                     )
+                    end_time = time.time()
+                    elapsed_time = time.time() - start_time
+                    logfile.write("Finished training")
+                    logfile.write(str(elapsed_time))
                 case "online":
                     h = trainer.train_online(
                         epochs=config.epochs,
@@ -96,6 +110,7 @@ if __name__ == "__main__":
                     logfile.write("Unbekannter Trainingsmodus")
                     sys.exit()
 
+            print("Plot results")
             results = ResultLogger(
                 workdir=workdir,
                 trainer=trainer,
@@ -103,5 +118,8 @@ if __name__ == "__main__":
                 config=config,
                 prior=prior,
                 diag=diag,
+                model=model,
+                configurator=dataReader.prepare_input,
+                amortizer=amortizer,
             )
             results.create_plots()
