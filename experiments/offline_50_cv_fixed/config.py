@@ -4,7 +4,7 @@ import sys, os
 
 
 SourcePath = "/home/l/projects/Morpheus/Tutorial/Experiments/src"
-BayesFlowPath = "/home/l/projects/Morpheus/Tutorial/infectionSpread/BayesFlow"
+BayesFlowPath = "/home/l/projects/Morpheus/Tutorial/Experiments/BayesFlow"
 sys.path.append(os.path.abspath(SourcePath))
 import PriorFunctions
 import SummaryNetworks
@@ -22,7 +22,7 @@ plots = "plots"
 
 # data config
 data_path = "/home/l/projects/Morpheus/Modelle/cell_free_50"
-folder = "output_fixed_cv_wm_trial"
+folder = "output_fixed_cv_wm"
 cell_nr = 51
 grid_size = 10
 timesteps = 50

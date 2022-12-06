@@ -12,7 +12,7 @@ parser.add_argument(
     "--workdir",
     type=str,
     help="path to the working directory for input and output",
-    default="/home/l/projects/Morpheus/Tutorial/Experiments/experiments/online_1000_cv_fixed/",
+    default="/home/l/projects/Morpheus/Tutorial/Experiments/experiments/offline_50_cv_fixed/",
 )
 parser.add_argument(
     "-c", "--configfile", type=str, help="path to the config file", default="config.py"
@@ -34,9 +34,9 @@ from ResultLogger import ResultLogger
 from functools import partial
 import tensorflow as tf
 from contextlib import redirect_stdout, redirect_stderr
-from bayesflow.forward_inference import GenerativeModel, Prior, Simulator
+from bayesflow.simulation import GenerativeModel, Prior, Simulator
 from bayesflow.networks import InvertibleNetwork
-from bayesflow.amortized_inference import AmortizedPosterior
+from bayesflow.amortizers import AmortizedPosterior
 from bayesflow.trainers import Trainer
 import bayesflow.diagnostics as diag
 
@@ -64,10 +64,7 @@ if __name__ == "__main__":
             logfile.write("Initialize amortizer")
             summary_net = config.summary_network
             inference_net = InvertibleNetwork(
-                {
-                    "n_params": config.param_nr,
-                    "n_coupling_layers": config.inn_layer,
-                }
+                num_params=config.param_nr, num_coupling_layers=config.inn_layer
             )
             amortizer = AmortizedPosterior(
                 inference_net, summary_net, name=config.amortizer_name
