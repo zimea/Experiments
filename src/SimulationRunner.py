@@ -87,11 +87,11 @@ class SimulationRunner:
                 v_path = os.path.join(OUT, "logger_6_Ve.csv")
                 v = self.dataReader.calculate_V(v_path)
                 sim = np.append(df_cells, v, axis=1)
-                I_volume = self.dataReader.calculate_volume(OUT)[
-                    self.config.cut_off_start
-                    + 1 : self.config.timesteps
-                    - self.config.cut_off_end
-                ]
-                sim = np.append(sim, I_volume, axis=1)
+                # I_volume = self.dataReader.calculate_volume(OUT)[
+                #     self.config.cut_off_start
+                #     + 1 : self.config.timesteps
+                #     - self.config.cut_off_end
+                # ]
+                # sim = np.append(sim, I_volume, axis=1)
 
                 return sim

@@ -49,5 +49,5 @@ posterior_scores = True
 recovery = True
 correlation = True
 slope = True
-run_resimualtions = sbc_ecdf or posterior_scores or recovery or correlation or slope
+run_resimulations = sbc_ecdf or posterior_scores or recovery or correlation or slope
 resimulation_param = {"simulations": 100, "post_samples": 500}

@@ -1,0 +1,119 @@
+Initialize prior
+Initialize generative model
+function [run_morpheus] finished in 483 ms
+function [run_morpheus] finished in 509 ms
+Initialize amortizer
+Initialize trainer
+function [run_morpheus] finished in 523 ms
+function [run_morpheus] finished in 499 ms
+Initialization finished
+Start reading data
+Finished reading data
+Start training
+Training epoch 1:   0%|          | 0/18 [00:00<?, ?it/s]Training epoch 1:   0%|          | 0/18 [00:05<?, ?it/s, Epoch: 1, Batch: 1,Loss: -1.148,Avg.Loss: -1.148,LR: 5.00E-04]Training epoch 1:   6%|▌         | 1/18 [00:05<01:35,  5.63s/it, Epoch: 1, Batch: 1,Loss: -1.148,Avg.Loss: -1.148,LR: 5.00E-04]Training epoch 1:   6%|▌         | 1/18 [00:05<01:35,  5.63s/it, Epoch: 1, Batch: 2,Loss: 4.194,Avg.Loss: 1.523,LR: 4.99E-04]  Training epoch 1:  11%|█         | 2/18 [00:05<01:30,  5.63s/it, Epoch: 1, Batch: 3,Loss: 3.523,Avg.Loss: 2.190,LR: 4.99E-04]Training epoch 1:  17%|█▋        | 3/18 [00:05<01:24,  5.63s/it, Epoch: 1, Batch: 4,Loss: 0.501,Avg.Loss: 1.767,LR: 4.98E-04]Training epoch 1:  22%|██▏       | 4/18 [00:05<01:18,  5.63s/it, Epoch: 1, Batch: 5,Loss: -0.909,Avg.Loss: 1.232,LR: 4.96E-04]Training epoch 1:  28%|██▊       | 5/18 [00:05<01:13,  5.63s/it, Epoch: 1, Batch: 6,Loss: -0.409,Avg.Loss: 0.959,LR: 4.95E-04]Training epoch 1:  33%|███▎      | 6/18 [00:05<01:07,  5.63s/it, Epoch: 1, Batch: 7,Loss: -0.266,Avg.Loss: 0.784,LR: 4.93E-04]Training epoch 1:  39%|███▉      | 7/18 [00:05<00:06,  1.65it/s, Epoch: 1, Batch: 7,Loss: -0.266,Avg.Loss: 0.784,LR: 4.93E-04]Training epoch 1:  39%|███▉      | 7/18 [00:05<00:06,  1.65it/s, Epoch: 1, Batch: 8,Loss: -0.125,Avg.Loss: 0.670,LR: 4.90E-04]Training epoch 1:  44%|████▍     | 8/18 [00:05<00:06,  1.65it/s, Epoch: 1, Batch: 9,Loss: -0.743,Avg.Loss: 0.513,LR: 4.88E-04]Training epoch 1:  50%|█████     | 9/18 [00:05<00:05,  1.65it/s, Epoch: 1, Batch: 10,Loss: -0.616,Avg.Loss: 0.400,LR: 4.85E-04]Training epoch 1:  56%|█████▌    | 10/18 [00:05<00:04,  1.65it/s, Epoch: 1, Batch: 11,Loss: -0.554,Avg.Loss: 0.313,LR: 4.82E-04]Training epoch 1:  61%|██████    | 11/18 [00:05<00:04,  1.65it/s, Epoch: 1, Batch: 12,Loss: -0.348,Avg.Loss: 0.258,LR: 4.78E-04]Training epoch 1:  67%|██████▋   | 12/18 [00:05<00:03,  1.65it/s, Epoch: 1, Batch: 13,Loss: -0.540,Avg.Loss: 0.197,LR: 4.75E-04]Training epoch 1:  72%|███████▏  | 13/18 [00:05<00:01,  3.63it/s, Epoch: 1, Batch: 13,Loss: -0.540,Avg.Loss: 0.197,LR: 4.75E-04]Training epoch 1:  72%|███████▏  | 13/18 [00:05<00:01,  3.63it/s, Epoch: 1, Batch: 14,Loss: -0.671,Avg.Loss: 0.135,LR: 4.71E-04]Training epoch 1:  78%|███████▊  | 14/18 [00:05<00:01,  3.63it/s, Epoch: 1, Batch: 15,Loss: -1.198,Avg.Loss: 0.046,LR: 4.67E-04]Training epoch 1:  83%|████████▎ | 15/18 [00:05<00:00,  3.63it/s, Epoch: 1, Batch: 16,Loss: -0.770,Avg.Loss: -0.005,LR: 4.62E-04]Training epoch 1:  89%|████████▉ | 16/18 [00:05<00:00,  3.63it/s, Epoch: 1, Batch: 17,Loss: -0.967,Avg.Loss: -0.062,LR: 4.57E-04]Training epoch 1:  94%|█████████▍| 17/18 [00:10<00:00,  3.63it/s, Epoch: 1, Batch: 18,Loss: 0.056,Avg.Loss: -0.055,LR: 4.52E-04] Training epoch 1: 100%|██████████| 18/18 [00:10<00:00,  1.87it/s, Epoch: 1, Batch: 18,Loss: 0.056,Avg.Loss: -0.055,LR: 4.52E-04]Training epoch 1: 100%|██████████| 18/18 [00:10<00:00,  1.72it/s, Epoch: 1, Batch: 18,Loss: 0.056,Avg.Loss: -0.055,LR: 4.52E-04]
+Training epoch 2:   0%|          | 0/18 [00:00<?, ?it/s]Training epoch 2:   0%|          | 0/18 [00:00<?, ?it/s, Epoch: 2, Batch: 1,Loss: -0.838,Avg.Loss: -0.838,LR: 4.47E-04]Training epoch 2:   6%|▌         | 1/18 [00:00<00:00, 25.52it/s, Epoch: 2, Batch: 2,Loss: -1.218,Avg.Loss: -1.028,LR: 4.42E-04]Training epoch 2:  11%|█         | 2/18 [00:00<00:00, 36.70it/s, Epoch: 2, Batch: 3,Loss: -1.148,Avg.Loss: -1.068,LR: 4.36E-04]Training epoch 2:  17%|█▋        | 3/18 [00:00<00:00, 43.26it/s, Epoch: 2, Batch: 4,Loss: -1.074,Avg.Loss: -1.070,LR: 4.30E-04]Training epoch 2:  22%|██▏       | 4/18 [00:00<00:00, 48.71it/s, Epoch: 2, Batch: 5,Loss: -0.499,Avg.Loss: -0.956,LR: 4.24E-04]Training epoch 2:  28%|██▊       | 5/18 [00:00<00:00, 51.18it/s, Epoch: 2, Batch: 6,Loss: -0.940,Avg.Loss: -0.953,LR: 4.17E-04]Training epoch 2:  33%|███▎      | 6/18 [00:00<00:00, 52.41it/s, Epoch: 2, Batch: 7,Loss: -0.948,Avg.Loss: -0.952,LR: 4.11E-04]Training epoch 2:  39%|███▉      | 7/18 [00:00<00:00, 61.05it/s, Epoch: 2, Batch: 7,Loss: -0.948,Avg.Loss: -0.952,LR: 4.11E-04]Training epoch 2:  39%|███▉      | 7/18 [00:00<00:00, 61.05it/s, Epoch: 2, Batch: 8,Loss: -1.030,Avg.Loss: -0.962,LR: 4.04E-04]Training epoch 2:  44%|████▍     | 8/18 [00:00<00:00, 61.05it/s, Epoch: 2, Batch: 9,Loss: -0.933,Avg.Loss: -0.959,LR: 3.97E-04]Training epoch 2:  50%|█████     | 9/18 [00:00<00:00, 61.05it/s, Epoch: 2, Batch: 10,Loss: -1.095,Avg.Loss: -0.972,LR: 3.90E-04]Training epoch 2:  56%|█████▌    | 10/18 [00:00<00:00, 61.05it/s, Epoch: 2, Batch: 11,Loss: -0.953,Avg.Loss: -0.971,LR: 3.82E-04]Training epoch 2:  61%|██████    | 11/18 [00:00<00:00, 61.05it/s, Epoch: 2, Batch: 12,Loss: -1.125,Avg.Loss: -0.983,LR: 3.75E-04]Training epoch 2:  67%|██████▋   | 12/18 [00:00<00:00, 61.05it/s, Epoch: 2, Batch: 13,Loss: -1.273,Avg.Loss: -1.006,LR: 3.67E-04]Training epoch 2:  72%|███████▏  | 13/18 [00:00<00:00, 61.05it/s, Epoch: 2, Batch: 14,Loss: -1.353,Avg.Loss: -1.031,LR: 3.60E-04]Training epoch 2:  78%|███████▊  | 14/18 [00:00<00:00, 56.21it/s, Epoch: 2, Batch: 14,Loss: -1.353,Avg.Loss: -1.031,LR: 3.60E-04]Training epoch 2:  78%|███████▊  | 14/18 [00:00<00:00, 56.21it/s, Epoch: 2, Batch: 15,Loss: -1.314,Avg.Loss: -1.049,LR: 3.52E-04]Training epoch 2:  83%|████████▎ | 15/18 [00:00<00:00, 56.21it/s, Epoch: 2, Batch: 16,Loss: -0.829,Avg.Loss: -1.036,LR: 3.44E-04]Training epoch 2:  89%|████████▉ | 16/18 [00:00<00:00, 56.21it/s, Epoch: 2, Batch: 17,Loss: -1.189,Avg.Loss: -1.045,LR: 3.36E-04]Training epoch 2:  94%|█████████▍| 17/18 [00:00<00:00, 56.21it/s, Epoch: 2, Batch: 18,Loss: -0.457,Avg.Loss: -1.012,LR: 3.27E-04]Training epoch 2: 100%|██████████| 18/18 [00:00<00:00, 55.77it/s, Epoch: 2, Batch: 18,Loss: -0.457,Avg.Loss: -1.012,LR: 3.27E-04]
+Training epoch 3:   0%|          | 0/18 [00:00<?, ?it/s]Training epoch 3:   0%|          | 0/18 [00:00<?, ?it/s, Epoch: 3, Batch: 1,Loss: -0.748,Avg.Loss: -0.748,LR: 3.19E-04]Training epoch 3:   6%|▌         | 1/18 [00:00<00:00, 28.63it/s, Epoch: 3, Batch: 2,Loss: -0.988,Avg.Loss: -0.868,LR: 3.10E-04]Training epoch 3:  11%|█         | 2/18 [00:00<00:00, 39.19it/s, Epoch: 3, Batch: 3,Loss: -1.164,Avg.Loss: -0.966,LR: 3.02E-04]Training epoch 3:  17%|█▋        | 3/18 [00:00<00:00, 45.52it/s, Epoch: 3, Batch: 4,Loss: -1.258,Avg.Loss: -1.039,LR: 2.93E-04]Training epoch 3:  22%|██▏       | 4/18 [00:00<00:00, 47.72it/s, Epoch: 3, Batch: 5,Loss: -1.235,Avg.Loss: -1.079,LR: 2.85E-04]Training epoch 3:  28%|██▊       | 5/18 [00:00<00:00, 49.55it/s, Epoch: 3, Batch: 6,Loss: -1.120,Avg.Loss: -1.085,LR: 2.76E-04]Training epoch 3:  33%|███▎      | 6/18 [00:00<00:00, 59.36it/s, Epoch: 3, Batch: 6,Loss: -1.120,Avg.Loss: -1.085,LR: 2.76E-04]Training epoch 3:  33%|███▎      | 6/18 [00:00<00:00, 59.36it/s, Epoch: 3, Batch: 7,Loss: -1.352,Avg.Loss: -1.124,LR: 2.67E-04]Training epoch 3:  39%|███▉      | 7/18 [00:00<00:00, 59.36it/s, Epoch: 3, Batch: 8,Loss: -1.619,Avg.Loss: -1.185,LR: 2.59E-04]Training epoch 3:  44%|████▍     | 8/18 [00:00<00:00, 59.36it/s, Epoch: 3, Batch: 9,Loss: -1.445,Avg.Loss: -1.214,LR: 2.50E-04]Training epoch 3:  50%|█████     | 9/18 [00:00<00:00, 59.36it/s, Epoch: 3, Batch: 10,Loss: -1.329,Avg.Loss: -1.226,LR: 2.41E-04]Training epoch 3:  56%|█████▌    | 10/18 [00:00<00:00, 59.36it/s, Epoch: 3, Batch: 11,Loss: -1.200,Avg.Loss: -1.223,LR: 2.33E-04]Training epoch 3:  61%|██████    | 11/18 [00:00<00:00, 59.36it/s, Epoch: 3, Batch: 12,Loss: -1.017,Avg.Loss: -1.206,LR: 2.24E-04]Training epoch 3:  67%|██████▋   | 12/18 [00:00<00:00, 55.95it/s, Epoch: 3, Batch: 12,Loss: -1.017,Avg.Loss: -1.206,LR: 2.24E-04]Training epoch 3:  67%|██████▋   | 12/18 [00:00<00:00, 55.95it/s, Epoch: 3, Batch: 13,Loss: -0.958,Avg.Loss: -1.187,LR: 2.15E-04]Training epoch 3:  72%|███████▏  | 13/18 [00:00<00:00, 55.95it/s, Epoch: 3, Batch: 14,Loss: -0.912,Avg.Loss: -1.168,LR: 2.07E-04]Training epoch 3:  78%|███████▊  | 14/18 [00:00<00:00, 55.95it/s, Epoch: 3, Batch: 15,Loss: -1.097,Avg.Loss: -1.163,LR: 1.98E-04]Training epoch 3:  83%|████████▎ | 15/18 [00:00<00:00, 55.95it/s, Epoch: 3, Batch: 16,Loss: -1.149,Avg.Loss: -1.162,LR: 1.90E-04]Training epoch 3:  89%|████████▉ | 16/18 [00:00<00:00, 55.95it/s, Epoch: 3, Batch: 17,Loss: -1.120,Avg.Loss: -1.160,LR: 1.81E-04]Training epoch 3:  94%|█████████▍| 17/18 [00:00<00:00, 55.95it/s, Epoch: 3, Batch: 18,Loss: -0.687,Avg.Loss: -1.133,LR: 1.73E-04]Training epoch 3: 100%|██████████| 18/18 [00:00<00:00, 54.37it/s, Epoch: 3, Batch: 18,Loss: -0.687,Avg.Loss: -1.133,LR: 1.73E-04]Training epoch 3: 100%|██████████| 18/18 [00:00<00:00, 54.88it/s, Epoch: 3, Batch: 18,Loss: -0.687,Avg.Loss: -1.133,LR: 1.73E-04]
+Training epoch 4:   0%|          | 0/18 [00:00<?, ?it/s]Training epoch 4:   0%|          | 0/18 [00:00<?, ?it/s, Epoch: 4, Batch: 1,Loss: -1.173,Avg.Loss: -1.173,LR: 1.64E-04]Training epoch 4:   6%|▌         | 1/18 [00:00<00:00, 30.82it/s, Epoch: 4, Batch: 2,Loss: -1.343,Avg.Loss: -1.258,LR: 1.56E-04]Training epoch 4:  11%|█         | 2/18 [00:00<00:00, 41.25it/s, Epoch: 4, Batch: 3,Loss: -1.067,Avg.Loss: -1.194,LR: 1.48E-04]Training epoch 4:  17%|█▋        | 3/18 [00:00<00:00, 46.11it/s, Epoch: 4, Batch: 4,Loss: -0.986,Avg.Loss: -1.142,LR: 1.40E-04]Training epoch 4:  22%|██▏       | 4/18 [00:00<00:00, 50.58it/s, Epoch: 4, Batch: 5,Loss: -1.314,Avg.Loss: -1.177,LR: 1.33E-04]Training epoch 4:  28%|██▊       | 5/18 [00:00<00:00, 52.12it/s, Epoch: 4, Batch: 6,Loss: -1.334,Avg.Loss: -1.203,LR: 1.25E-04]Training epoch 4:  33%|███▎      | 6/18 [00:00<00:00, 52.91it/s, Epoch: 4, Batch: 7,Loss: -1.490,Avg.Loss: -1.244,LR: 1.18E-04]Training epoch 4:  39%|███▉      | 7/18 [00:00<00:00, 61.65it/s, Epoch: 4, Batch: 7,Loss: -1.490,Avg.Loss: -1.244,LR: 1.18E-04]Training epoch 4:  39%|███▉      | 7/18 [00:00<00:00, 61.65it/s, Epoch: 4, Batch: 8,Loss: -1.040,Avg.Loss: -1.219,LR: 1.10E-04]Training epoch 4:  44%|████▍     | 8/18 [00:00<00:00, 61.65it/s, Epoch: 4, Batch: 9,Loss: -1.130,Avg.Loss: -1.209,LR: 1.03E-04]Training epoch 4:  50%|█████     | 9/18 [00:00<00:00, 61.65it/s, Epoch: 4, Batch: 10,Loss: -1.156,Avg.Loss: -1.203,LR: 9.61E-05]Training epoch 4:  56%|█████▌    | 10/18 [00:00<00:00, 61.65it/s, Epoch: 4, Batch: 11,Loss: -1.285,Avg.Loss: -1.211,LR: 8.93E-05]Training epoch 4:  61%|██████    | 11/18 [00:00<00:00, 61.65it/s, Epoch: 4, Batch: 12,Loss: -1.017,Avg.Loss: -1.195,LR: 8.27E-05]Training epoch 4:  67%|██████▋   | 12/18 [00:00<00:00, 61.65it/s, Epoch: 4, Batch: 13,Loss: -1.548,Avg.Loss: -1.222,LR: 7.63E-05]Training epoch 4:  72%|███████▏  | 13/18 [00:00<00:00, 61.65it/s, Epoch: 4, Batch: 14,Loss: -1.491,Avg.Loss: -1.241,LR: 7.02E-05]Training epoch 4:  78%|███████▊  | 14/18 [00:00<00:00, 56.97it/s, Epoch: 4, Batch: 14,Loss: -1.491,Avg.Loss: -1.241,LR: 7.02E-05]Training epoch 4:  78%|███████▊  | 14/18 [00:00<00:00, 56.97it/s, Epoch: 4, Batch: 15,Loss: -1.352,Avg.Loss: -1.248,LR: 6.42E-05]Training epoch 4:  83%|████████▎ | 15/18 [00:00<00:00, 56.97it/s, Epoch: 4, Batch: 16,Loss: -1.440,Avg.Loss: -1.260,LR: 5.85E-05]Training epoch 4:  89%|████████▉ | 16/18 [00:00<00:00, 56.97it/s, Epoch: 4, Batch: 17,Loss: -1.502,Avg.Loss: -1.275,LR: 5.30E-05]Training epoch 4:  94%|█████████▍| 17/18 [00:00<00:00, 56.97it/s, Epoch: 4, Batch: 18,Loss: -1.309,Avg.Loss: -1.277,LR: 4.77E-05]Training epoch 4: 100%|██████████| 18/18 [00:00<00:00, 55.88it/s, Epoch: 4, Batch: 18,Loss: -1.309,Avg.Loss: -1.277,LR: 4.77E-05]
+Training epoch 5:   0%|          | 0/18 [00:00<?, ?it/s]Training epoch 5:   0%|          | 0/18 [00:00<?, ?it/s, Epoch: 5, Batch: 1,Loss: -1.289,Avg.Loss: -1.289,LR: 4.27E-05]Training epoch 5:   6%|▌         | 1/18 [00:00<00:00, 26.78it/s, Epoch: 5, Batch: 2,Loss: -1.492,Avg.Loss: -1.391,LR: 3.80E-05]Training epoch 5:  11%|█         | 2/18 [00:00<00:00, 37.93it/s, Epoch: 5, Batch: 3,Loss: -1.195,Avg.Loss: -1.326,LR: 3.35E-05]Training epoch 5:  17%|█▋        | 3/18 [00:00<00:00, 44.64it/s, Epoch: 5, Batch: 4,Loss: -1.238,Avg.Loss: -1.304,LR: 2.93E-05]Training epoch 5:  22%|██▏       | 4/18 [00:00<00:00, 49.75it/s, Epoch: 5, Batch: 5,Loss: -1.042,Avg.Loss: -1.252,LR: 2.53E-05]Training epoch 5:  28%|██▊       | 5/18 [00:00<00:00, 53.09it/s, Epoch: 5, Batch: 6,Loss: -1.247,Avg.Loss: -1.251,LR: 2.16E-05]Training epoch 5:  33%|███▎      | 6/18 [00:00<00:00, 55.54it/s, Epoch: 5, Batch: 7,Loss: -1.236,Avg.Loss: -1.249,LR: 1.82E-05]Training epoch 5:  39%|███▉      | 7/18 [00:00<00:00, 64.66it/s, Epoch: 5, Batch: 7,Loss: -1.236,Avg.Loss: -1.249,LR: 1.82E-05]Training epoch 5:  39%|███▉      | 7/18 [00:00<00:00, 64.66it/s, Epoch: 5, Batch: 8,Loss: -1.197,Avg.Loss: -1.242,LR: 1.51E-05]Training epoch 5:  44%|████▍     | 8/18 [00:00<00:00, 64.66it/s, Epoch: 5, Batch: 9,Loss: -1.450,Avg.Loss: -1.265,LR: 1.22E-05]Training epoch 5:  50%|█████     | 9/18 [00:00<00:00, 64.66it/s, Epoch: 5, Batch: 10,Loss: -1.437,Avg.Loss: -1.282,LR: 9.68E-06]Training epoch 5:  56%|█████▌    | 10/18 [00:00<00:00, 64.66it/s, Epoch: 5, Batch: 11,Loss: -1.264,Avg.Loss: -1.281,LR: 7.43E-06]Training epoch 5:  61%|██████    | 11/18 [00:00<00:00, 64.66it/s, Epoch: 5, Batch: 12,Loss: -1.226,Avg.Loss: -1.276,LR: 5.46E-06]Training epoch 5:  67%|██████▋   | 12/18 [00:00<00:00, 64.66it/s, Epoch: 5, Batch: 13,Loss: -1.452,Avg.Loss: -1.290,LR: 3.80E-06]Training epoch 5:  72%|███████▏  | 13/18 [00:00<00:00, 64.66it/s, Epoch: 5, Batch: 14,Loss: -1.559,Avg.Loss: -1.309,LR: 2.43E-06]Training epoch 5:  78%|███████▊  | 14/18 [00:00<00:00, 58.09it/s, Epoch: 5, Batch: 14,Loss: -1.559,Avg.Loss: -1.309,LR: 2.43E-06]Training epoch 5:  78%|███████▊  | 14/18 [00:00<00:00, 58.09it/s, Epoch: 5, Batch: 15,Loss: -1.762,Avg.Loss: -1.339,LR: 1.37E-06]Training epoch 5:  83%|████████▎ | 15/18 [00:00<00:00, 58.09it/s, Epoch: 5, Batch: 16,Loss: -1.298,Avg.Loss: -1.337,LR: 6.09E-07]Training epoch 5:  89%|████████▉ | 16/18 [00:00<00:00, 58.09it/s, Epoch: 5, Batch: 17,Loss: -1.405,Avg.Loss: -1.341,LR: 1.52E-07]Training epoch 5:  94%|█████████▍| 17/18 [00:00<00:00, 58.09it/s, Epoch: 5, Batch: 18,Loss: -0.856,Avg.Loss: -1.314,LR: 0.00E+00]Training epoch 5: 100%|██████████| 18/18 [00:00<00:00, 56.95it/s, Epoch: 5, Batch: 18,Loss: -0.856,Avg.Loss: -1.314,LR: 0.00E+00]
+Finished training
+13.36963176727295Plot results
+function [run_morpheus] finished in 561 ms
+function [run_morpheus] finished in 495 ms
+function [run_morpheus] finished in 539 ms
+function [run_morpheus] finished in 518 ms
+function [run_morpheus] finished in 470 ms
+function [run_morpheus] finished in 492 ms
+function [run_morpheus] finished in 490 ms
+function [run_morpheus] finished in 502 ms
+function [run_morpheus] finished in 504 ms
+function [run_morpheus] finished in 509 ms
+function [run_morpheus] finished in 511 ms
+function [run_morpheus] finished in 511 ms
+function [run_morpheus] finished in 499 ms
+function [run_morpheus] finished in 493 ms
+function [run_morpheus] finished in 516 ms
+function [run_morpheus] finished in 509 ms
+function [run_morpheus] finished in 486 ms
+function [run_morpheus] finished in 514 ms
+function [run_morpheus] finished in 495 ms
+function [run_morpheus] finished in 518 ms
+function [run_morpheus] finished in 535 ms
+function [run_morpheus] finished in 525 ms
+function [run_morpheus] finished in 519 ms
+function [run_morpheus] finished in 492 ms
+function [run_morpheus] finished in 510 ms
+function [run_morpheus] finished in 495 ms
+function [run_morpheus] finished in 517 ms
+function [run_morpheus] finished in 536 ms
+function [run_morpheus] finished in 486 ms
+function [run_morpheus] finished in 501 ms
+function [run_morpheus] finished in 495 ms
+function [run_morpheus] finished in 577 ms
+function [run_morpheus] finished in 492 ms
+function [run_morpheus] finished in 505 ms
+function [run_morpheus] finished in 495 ms
+function [run_morpheus] finished in 499 ms
+function [run_morpheus] finished in 518 ms
+function [run_morpheus] finished in 510 ms
+function [run_morpheus] finished in 484 ms
+function [run_morpheus] finished in 469 ms
+function [run_morpheus] finished in 521 ms
+function [run_morpheus] finished in 552 ms
+function [run_morpheus] finished in 514 ms
+function [run_morpheus] finished in 505 ms
+function [run_morpheus] finished in 508 ms
+function [run_morpheus] finished in 495 ms
+function [run_morpheus] finished in 490 ms
+function [run_morpheus] finished in 511 ms
+function [run_morpheus] finished in 510 ms
+function [run_morpheus] finished in 507 ms
+function [run_morpheus] finished in 505 ms
+function [run_morpheus] finished in 512 ms
+function [run_morpheus] finished in 502 ms
+function [run_morpheus] finished in 491 ms
+function [run_morpheus] finished in 570 ms
+function [run_morpheus] finished in 527 ms
+function [run_morpheus] finished in 518 ms
+function [run_morpheus] finished in 484 ms
+function [run_morpheus] finished in 529 ms
+function [run_morpheus] finished in 487 ms
+function [run_morpheus] finished in 522 ms
+function [run_morpheus] finished in 481 ms
+function [run_morpheus] finished in 506 ms
+function [run_morpheus] finished in 513 ms
+function [run_morpheus] finished in 553 ms
+function [run_morpheus] finished in 518 ms
+function [run_morpheus] finished in 502 ms
+function [run_morpheus] finished in 497 ms
+function [run_morpheus] finished in 503 ms
+function [run_morpheus] finished in 511 ms
+function [run_morpheus] finished in 483 ms
+function [run_morpheus] finished in 533 ms
+function [run_morpheus] finished in 470 ms
+function [run_morpheus] finished in 513 ms
+function [run_morpheus] finished in 537 ms
+function [run_morpheus] finished in 512 ms
+function [run_morpheus] finished in 533 ms
+function [run_morpheus] finished in 508 ms
+function [run_morpheus] finished in 525 ms
+function [run_morpheus] finished in 545 ms
+function [run_morpheus] finished in 507 ms
+function [run_morpheus] finished in 509 ms
+function [run_morpheus] finished in 488 ms
+function [run_morpheus] finished in 513 ms
+function [run_morpheus] finished in 496 ms
+function [run_morpheus] finished in 502 ms
+function [run_morpheus] finished in 509 ms
+function [run_morpheus] finished in 490 ms
+function [run_morpheus] finished in 474 ms
+function [run_morpheus] finished in 503 ms
+function [run_morpheus] finished in 546 ms
+function [run_morpheus] finished in 788 ms
+function [run_morpheus] finished in 542 ms
+function [run_morpheus] finished in 504 ms
+function [run_morpheus] finished in 647 ms
+function [run_morpheus] finished in 520 ms
+function [run_morpheus] finished in 662 ms
+function [run_morpheus] finished in 542 ms
+function [run_morpheus] finished in 523 ms
+function [run_morpheus] finished in 512 ms

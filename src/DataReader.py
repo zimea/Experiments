@@ -84,7 +84,7 @@ class DataReader:
                             - self.config.cut_off_start
                             - self.config.cut_off_end
                         ),
-                        4,
+                        3,
                     ),
                     dtype=np.float32,
                 )
@@ -122,11 +122,11 @@ class DataReader:
                     df_cells = np.append(df_tar, df_inf, axis=1)
                     try:
                         df_V = self.calculate_V(filename_V)
-                        I_volume = self.calculate_volume(pathname)[
-                            self.config.cut_off_start
-                            + 1 : self.config.timesteps
-                            - self.config.cut_off_end
-                        ]
+                        # I_volume = self.calculate_volume(pathname)[
+                        #     self.config.cut_off_start
+                        #     + 1 : self.config.timesteps
+                        #     - self.config.cut_off_end
+                        # ]
                     except Exception as error:
                         invalidIndices.append(path)
                         continue
@@ -145,9 +145,10 @@ class DataReader:
                         invalidIndices.append(path)
                         continue
                     params[path] = param_file
-                    dfs[path] = np.append(
-                        np.append(df_cells, df_V, axis=1), I_volume, axis=1
-                    )
+                    # dfs[path] = np.append(
+                    #     np.append(df_cells, df_V, axis=1), I_volume, axis=1
+                    # )
+                    dfs[path] = np.append(df_cells, df_V, axis=1)
 
                 dfs = np.delete(dfs, invalidIndices, axis=0)
                 params = np.delete(params, invalidIndices, axis=0)
@@ -178,3 +179,73 @@ class DataReader:
         out_dict["summary_conditions"] = logdata
         out_dict["parameters"] = params
         return out_dict
+
+    def read_offline_split(self, path: str, workdir):
+        with open(os.path.join(workdir, "log_read_offline.txt"), "w") as logfile:
+            with redirect_stdout(logfile), redirect_stderr(logfile):
+                path_to_split_data = os.path.join(
+                    self.config.processed_data_path,
+                    str(self.config.cell_nr - 1) + "_" + self.config.folder,
+                )
+                files_exist = os.path.exists(
+                    os.path.join(path_to_split_data, "train.npy")
+                )
+                reread_data = self.config.reread_data or not files_exist
+
+                if reread_data == False:
+                    train: dict = np.load(
+                        os.path.join(path_to_split_data, "train.npy"), allow_pickle=True
+                    )[()]
+                    test: dict = np.load(
+                        os.path.join(path_to_split_data, "test.npy"), allow_pickle=True
+                    )[()]
+                    validation: dict = np.load(
+                        os.path.join(path_to_split_data, "validation.npy"),
+                        allow_pickle=True,
+                    )[()]
+                else:
+                    if not os.path.exists(path_to_split_data):
+                        os.mkdir(path_to_split_data)
+                    dfs, params = self.read_offline_data(path, workdir)
+                    indices = np.random.permutation(dfs.shape[0])
+                    split_test, split_validation = (
+                        int(dfs.shape[0] * self.config.test_ratio),
+                        int(
+                            dfs.shape[0]
+                            * (self.config.validation_ratio + self.config.test_ratio)
+                        ),
+                    )
+                    test_idx, validation_idx, training_idx = (
+                        indices[:split_test],
+                        indices[split_test:split_validation],
+                        indices[split_validation:],
+                    )
+                    print("train.shape: ", training_idx.shape, "\n")
+                    print("test.shape: ", test_idx.shape, "\n")
+                    print("validation.shape: ", validation_idx.shape, "\n")
+                    train = {
+                        "sim_data": dfs[training_idx],
+                        "prior_draws": params[training_idx],
+                    }
+                    test = {"sim_data": dfs[test_idx], "prior_draws": params[test_idx]}
+                    validation = {
+                        "sim_data": dfs[validation_idx],
+                        "prior_draws": params[validation_idx],
+                    }
+                    np.save(
+                        os.path.join(path_to_split_data, "train.npy"),
+                        train,
+                        allow_pickle=True,
+                    )
+                    np.save(
+                        os.path.join(path_to_split_data, "test.npy"),
+                        test,
+                        allow_pickle=True,
+                    )
+                    np.save(
+                        os.path.join(path_to_split_data, "validation.npy"),
+                        validation,
+                        allow_pickle=True,
+                    )
+
+                return train, test, validation
