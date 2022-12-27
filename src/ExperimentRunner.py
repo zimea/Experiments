@@ -28,9 +28,10 @@ spec.loader.exec_module(config)
 
 sys.path.append(os.path.abspath(os.path.join(config.SourcePath)))
 sys.path.append(os.path.abspath(os.path.join(config.BayesFlowPath)))
-from DataReader import DataReader
+from MorpheusReader import MorpheusReader
 from SimulationRunner import SimulationRunner
 from ResultLogger import ResultLogger
+from Utility import inject_class_method
 from functools import partial
 import tensorflow as tf
 from contextlib import redirect_stdout, redirect_stderr
@@ -52,7 +53,7 @@ if __name__ == "__main__":
             logfile.write("Initialize prior\n")
             prior = Prior(prior_fun=config.prior_func, param_names=config.prior_names)
             prior_means, prior_stds = prior.estimate_means_and_stds()
-            dataReader = DataReader(
+            dataReader = MorpheusReader(
                 config, prior_means=prior_means, prior_stds=prior_stds
             )
             logfile.write("Initialize generative model\n")

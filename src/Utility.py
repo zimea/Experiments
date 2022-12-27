@@ -16,3 +16,23 @@ def timeit(func):
         return result
 
     return new_func
+
+def injector_model(function, name=None, mod=None):
+    if name == None:
+        name = function.__name__
+    def wrapper(k):
+        if mod == None:
+            setattr(k, name, eval(name))
+        else:
+            setattr(k, name, mod(eval(name)))
+        return k
+    return wrapper
+
+def inject_static_method(function, name):
+    return injector_model(function, name, staticmethod)
+
+def inject_class_method(function, name):
+    return injector_model(function, name, classmethod)
+
+def inject_instance_method(function, name):
+    return injector_model(function, name)
