@@ -91,8 +91,10 @@ class MorpheusReader:
                 params = np.empty((n_sim, nr_of_params), dtype=np.float32)
                 invalidIndices = []
 
+                sum_rejected = 0
                 for path in tqdm(range(n_sim)):
                     pathname = path_list[path]
+                    print(pathname)
                     filename = os.path.join(pathname, "logger_2.csv")
                     filename_V = os.path.join(pathname, "logger_6_Ve.csv")
                     df = pd.read_csv(filename, index_col=None, header=0, delimiter="\t")
@@ -109,6 +111,7 @@ class MorpheusReader:
                         map(lambda x: round(float(x.split("-")[1]), 3), params_split)
                     )
                     if self.config.rejectionBasedOnPrior(param_file) == True:
+                        sum_rejected += 1
                         invalidIndices.append(path)
                         continue
 
@@ -136,6 +139,7 @@ class MorpheusReader:
 
                     sim = np.append(df_cells, df_V, axis=1)
                     if self.config.rejectionBasedOnSimulation(sim):
+                        sum_rejected += 1
                         invalidIndices.append(path)
                         continue
 
@@ -160,7 +164,8 @@ class MorpheusReader:
 
                 dfs = np.delete(dfs, invalidIndices, axis=0)
                 params = np.delete(params, invalidIndices, axis=0)
-                print("Read data in the form of: ", dfs.shape)
+                print("Read data in the form of: ", dfs.shape, "\n")
+                print("Sum rejected: ", sum_rejected)
 
                 return dfs, params
 
@@ -193,7 +198,13 @@ class MorpheusReader:
             with redirect_stdout(logfile), redirect_stderr(logfile):
                 path_to_split_data = os.path.join(
                     self.config.processed_data_path,
-                    str(self.config.cell_nr - 1) + "_" + self.config.folder,
+                    str(self.config.cell_nr - 1)
+                    + "_"
+                    + self.config.folder
+                    + "_"
+                    + self.config.rejectionBasedOnPrior.__name__
+                    + "_"
+                    + self.config.rejectionBasedOnSimulation.__name__,
                 )
                 files_exist = os.path.exists(
                     os.path.join(path_to_split_data, "train.npy")

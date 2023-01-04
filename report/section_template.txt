@@ -1,0 +1,7 @@
+    \section{%(section_title)s}
+    \subsection{Configuration}
+
+    \subsection{Results}
+    \begin{figure}
+        
+    \end{figure}

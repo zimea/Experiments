@@ -1,13 +1,11 @@
-from unicodedata import numeric
-
-
-def noRejectionBasedOnPrior(self):
-    return False
-    
-def noRejectionBasedOnSimulation(self):
+def noRejectionBasedOnPrior(prior):
     return False
 
-    
-def rejectLowPrior(self, prior: dict, lower_bound: numeric):
-    if any(x < lower_bound for x in prior.values()):
+
+def noRejectionBasedOnSimulation(sim):
+    return False
+
+
+def rejectLowPrior(prior):
+    if any(x < 0.15 for x in prior):
         return True

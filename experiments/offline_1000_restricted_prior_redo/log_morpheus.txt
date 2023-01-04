@@ -1,44 +1,44 @@
-Setting output directory /home/l/projects/Morpheus/Modelle/cell_free_1000/output_fixed_cv_wm/DV-999_bcf-0.26481174355072745_pi-0.7540943366365904_cv-0.33
+Setting output directory /home/l/projects/Morpheus/Modelle/cell_free_1000/output_fixed_cv_wm/DV-999_bcf-0.7595761817976738_pi-0.5767020367459441_cv-0.33
 Initializing from file /home/l/projects/Morpheus/Modelle/cell_free_1000/model/cell_free_1000_DV-wm_30_8.xml
 AutoFix: Moved 1 element(s)  matching /MorpheusModel/Global/System/DiffEqn/Expression to /MorpheusModel/Global/System/DiffEqn/Reaction
 AutoFix: Moved 1 element(s)  matching /MorpheusModel/Global/Field[(@symbol)]/Diffusion[@well-mixed=true]/@well-mixed to /MorpheusModel/Global/System/DiffEqn[@symbol-ref=%1]/Diffusion/@well-mixed
 AutoFix: Moved 1 element(s)  matching /MorpheusModel/Global/Field[(@symbol)]/Diffusion to 
 Applied 3 patches to update MorpheusML version to internal v5!
 Time/RandomSeed not specified, using arbitray seed (based on time).
-Intitalize Thread Intitalize Thread Intitalize Thread Intitalize Thread 8 with seed 548218844Intitalize Thread 6Intitalize Thread 
-Intitalize Thread 1 with seed 3474388674
-Intitalize Thread 2 with seed 2805096599
-Intitalize Thread 7 with seed 2317273519
-Intitalize Thread 12 with seed 2746982186
-11 with seed 161515778
-Intitalize Thread 15 with seed 2273385109
-0 with seed 1672160871
-Intitalize Thread 9 with seed 531314474
-Intitalize Thread Intitalize Thread 13 with seed 1190794606
-4 with seed 104705789
-Intitalize Thread 3 with seed 3610003174
-10 with seed 1063946418
-Intitalize Thread 14 with seed 1677823736
- with seed 400944851
-5 with seed 3897131813
+Intitalize Thread Intitalize Thread Intitalize Thread 0Intitalize Thread Intitalize Thread Intitalize Thread Intitalize Thread 12 with seed 6 with seed 4144045690Intitalize Thread 1672162168Intitalize Thread 11 with seed 1382966141Intitalize Thread 
+Intitalize Thread 1 with seed 1694601994
+Intitalize Thread 14 with seed 3793235268
+
+Intitalize Thread 7 with seed 2738077914
+3 with seed 4207251020
+Intitalize Thread 9 with seed 2046616439
+
+4 with seed 3551869013
+ with seed 3613093986
+5 with seed 1990644973
+Intitalize Thread 2 with seed 3547237781
+Intitalize Thread 15 with seed 358990537
+13 with seed 4005351589
+10 with seed 1606789142
+8 with seed 365957258
 Registering Symbol time of linktype TimeLink in Scope root
 Time/RandomSeed not specified, using arbitray seed (based on time).
-Intitalize Thread Intitalize Thread Intitalize Thread Intitalize Thread Intitalize Thread 12Intitalize Thread Intitalize Thread 13Intitalize Thread 2 with seed 6Intitalize Thread  with seed  with seed 1190794606
-4Intitalize Thread Intitalize Thread 3 with seed Intitalize Thread Intitalize Thread 1 with seed 3474388674
-9Intitalize Thread  with seed 531314474
-104705789
-10 with seed 1063946418
-7 with seed 2317273519
-14 with seed 1677823736
-2805096599
-15 with seed 2273385109
-11 with seed 161515778
-8 with seed 548218844
-Intitalize Thread 5 with seed 3897131813
-2746982186
- with seed 3610003174
- with seed 400944851
-Intitalize Thread 0 with seed 1672160871
+Intitalize Thread Intitalize Thread Intitalize Thread Intitalize Thread Intitalize Thread Intitalize Thread Intitalize Thread 5Intitalize Thread Intitalize Thread 6 with seed 311 with seed Intitalize Thread Intitalize Thread 8 with seed Intitalize Thread 9 with seed 0 with seed 1990644973
+1382966141 with seed 4207251020
+Intitalize Thread 13 with seed 4005351589
+Intitalize Thread 10 with seed 1606789142
+4 with seed 3551869013
+Intitalize Thread 12 with seed 3613093986
+2046616439
+14 with seed 3793235268
+1 with seed 1694601994
+365957258
+15 with seed 358990537
+ with seed 1672162168
+
+2 with seed 3547237781
+Intitalize Thread 7 with seed 2738077914
+4144045690
 Registering Symbol space of linktype LocationLink in Scope root
 Registering Symbol space.x of linktype VectorComponentLink in Scope root
 Registering Symbol space.y of linktype VectorComponentLink in Scope root
@@ -276,7 +276,7 @@ Scope: Creating Accessor for symbol 'run_model' from Scope root
 Expression 0 is const
 Scope: Creating Accessor for symbol 'b_cf' from Scope root
 Scope: Creating Accessor for symbol 'Vi' from Scope CellType[target]
-Expression 0.26481174355072745 is const
+Expression 0.7595761817976738 is const
 Expression 0.0 is const
 Warning: Could not initialize default property Vi of celltype target.
 Expression 1-exp(-b_cf*Vi) is space_variant and time_variant ( (b_cf, Vi, )
@@ -345,39 +345,39 @@ Scope: Creating Accessor for symbol 'cell.length' from Scope root
 Scope: Creating Accessor for symbol 'cell.type' from Scope root
 creating Edge tracker 
 
- thread_id = 139830319993472, register_thread_index = 0, shared_locks_array[cur_index].value = 1
+ thread_id = 140577102516864, register_thread_index = 0, shared_locks_array[cur_index].value = 1
 
- thread_id = 139830236051008, register_thread_index = 1, shared_locks_array[cur_index].value = 1
+ thread_id = 140577043752512, register_thread_index = 1, shared_locks_array[cur_index].value = 1
 
- thread_id = 139830319978048, register_thread_index = 8, shared_locks_array[cur_index].value = 1
+ thread_id = 140577068930624, register_thread_index = 2, shared_locks_array[cur_index].value = 1
 
- thread_id = 139830303192640, register_thread_index = 15, shared_locks_array[cur_index].value = 1
+ thread_id = 140577035359808
+ thread_id = , register_thread_index = 140576985003584, register_thread_index = 10, shared_locks_array[cur_index].value = 1
 
- thread_id = 139830286407232, register_thread_index = 3, shared_locks_array[cur_index].value = 1
+ thread_id = 140577060537920, register_thread_index = 7, shared_locks_array[cur_index].value = 1
 
- thread_id = 139830202480192, register_thread_index = 5, shared_locks_array[cur_index].value = 1
+ thread_id = 
+ thread_id = 140577010181696, register_thread_index = 140577094108736, register_thread_index = 119, shared_locks_array[cur_index].value = , shared_locks_array[cur_index].value = 1
 
- thread_id = 139830261229120, register_thread_index = 7, shared_locks_array[cur_index].value = 1
+ thread_id = 140576993396288, register_thread_index = 6, shared_locks_array[cur_index].value = 1
 
- thread_id = 139830244443712, register_thread_index = 11, shared_locks_array[cur_index].value = 1
+ thread_id = 140577052145216, register_thread_index = 5, shared_locks_array[cur_index].value = 1
 
- thread_id = 139830311585344, register_thread_index = 10, shared_locks_array[cur_index].value = 1
+ thread_id = 
+ thread_id = 140577085716032, register_thread_index = 12, shared_locks_array[cur_index].value = 1
 
- thread_id = 139830210872896, register_thread_index = 14, shared_locks_array[cur_index].value = 1
+ thread_id = 140577102501440, register_thread_index = 14, shared_locks_array[cur_index].value = 1
 
- thread_id = 139830227658304, register_thread_index = 4, shared_locks_array[cur_index].value = 1
+ thread_id = 
+ thread_id = 140577018574400, register_thread_index = 4, shared_locks_array[cur_index].value = 1
+1405770017889921
+3, shared_locks_array[cur_index].value = 1
+140577077323328, register_thread_index = 8, shared_locks_array[cur_index].value = 1
+, register_thread_index = 15, shared_locks_array[cur_index].value = 1
 
- thread_id = 139830219265600, register_thread_index = 9, shared_locks_array[cur_index].value = 1
-
- thread_id = 139830269621824, register_thread_index = 2, shared_locks_array[cur_index].value = 1
-
- thread_id = 139830278014528, register_thread_index = 6, shared_locks_array[cur_index].value = 1
-
- thread_id = 139830294799936, register_thread_index = 12, shared_locks_array[cur_index].value = 1
-
- thread_id = 139830252836416, register_thread_index = 13, shared_locks_array[cur_index].value = 1
+ thread_id = 140577026967104, register_thread_index = 13, shared_locks_array[cur_index].value = 1
 EdgeListTracker::init() : Created Tracker with Neighborhood size 8 of size 0.0498047 MB
-EdgeListTracker::init() : Found 5833 initial edges, wherof 5833 can be modified.
+EdgeListTracker::init() : Found 5813 initial edges, wherof 5813 can be modified.
 Expression 0 is const
 Expression 0 is const
 Expression 0 is const
@@ -401,7 +401,7 @@ Scope: Creating Accessor for symbol 'V' from Scope root
 Scope: Creating Accessor for symbol 'c_V' from Scope root
 Scope: Creating Accessor for symbol 'run_model' from Scope root
 Expression 0.33 is const
-Expression 0.7540943366365904 is const
+Expression 0.5767020367459441 is const
 Expression (p_V*V-c_V*Ve)*run_model is space_variant and time_variant ( (run_model, c_V, p_V, V, )
 System::init: Reordering Initializers ...
 Expression 0.0 is const
@@ -759,43 +759,43 @@ sampler 1 layer 10
     SCHEDULER PERFORMANCE STATISTICS
 =======================================================
 
-    +  29.0% = 362.5ms ( 69.0)  | Initialisation []
-    +  29.0% = 362.5ms ( 69.0)  | Initialisation []
-    +  17.9% = 224.5ms (128.9)  | Gnuplotter [V,cell.type]
-    +  17.9% = 224.5ms (128.9)  | Gnuplotter [V,cell.type]
-    +  12.7% = 159.4ms (163.4)  | Logger [Vi,cell.center.x,cell.center.y,cell.id,cell.type]
-    +  12.7% = 159.4ms (163.4)  | Logger [Vi,cell.center.x,cell.center.y,cell.id,cell.type]
-    +  11.7% = 145.9ms (145.9)  | Logger [cell.id,space.x,space.y]
-    +  11.7% = 145.9ms (145.9)  | Logger [cell.id,space.x,space.y]
-    +   5.8% =  73.0ms (822.0)  | Logger [V]
-    +   5.8% =  73.0ms (822.0)  | Logger [V]
-    +   5.3% =  66.1ms (948.1)  | CPM [run_model -> cell.center,cell.length,cell.surface,cell.type,cell.volume]
-    +   5.3% =  66.1ms (948.1)  | CPM [run_model -> cell.center,cell.length,cell.surface,cell.type,cell.volume]
-    +   3.5% =  43.7ms ( 43.7)  | Logger [Ve]
-    +   3.5% =  43.7ms ( 43.7)  | Logger [Ve]
-    +   1.5% =  18.8ms (218.7)  | Mapper [Ve,cell.center -> Vi]
-    +   1.5% =  18.8ms (218.7)  | Mapper [Ve,cell.center -> Vi]
-    +   1.2% =  15.6ms (132.7)  | Mapper [Ve,cell.center -> Vi]
-    +   1.2% =  15.6ms (132.7)  | Mapper [Ve,cell.center -> Vi]
-    +   1.2% =  14.9ms ( 58.8)  | System [V,c_V,p_V,run_model -> Ve]
-           |   0.5ms (  0.6)  | Diffusion[Ve]
-           |  14.4ms ( 58.2)  | Reaction
-    +   1.2% =  14.9ms ( 58.8)  | System [V,c_V,p_V,run_model -> Ve]
-    +   1.1% =  14.5ms (204.5)  | ChangeCellType [p_cf,run_model]
-    +   1.1% =  14.5ms (204.5)  | ChangeCellType [p_cf,run_model]
-    +   0.7% =   8.7ms ( 84.5)  | Event [time -> run_model]
-    +   0.7% =   8.7ms ( 84.5)  | Event [time -> run_model]
-    +   0.1% =   0.9ms ( 16.7)  | ModelGraph []
-    +   0.1% =   0.9ms ( 16.7)  | ModelGraph []
-    +   0.1% =   0.8ms (  0.7)  | Logger [celltype.infected.size,celltype.target.size]
-    +   0.1% =   0.8ms (  0.7)  | Logger [celltype.infected.size,celltype.target.size]
+    +  27.6% = 348.3ms ( 63.3)  | Initialisation []
+    +  27.6% = 348.3ms ( 63.3)  | Initialisation []
+    +  19.5% = 246.5ms (139.8)  | Gnuplotter [V,cell.type]
+    +  19.5% = 246.5ms (139.8)  | Gnuplotter [V,cell.type]
+    +  12.7% = 161.1ms (161.9)  | Logger [Vi,cell.center.x,cell.center.y,cell.id,cell.type]
+    +  12.7% = 161.1ms (161.9)  | Logger [Vi,cell.center.x,cell.center.y,cell.id,cell.type]
+    +  11.7% = 147.7ms (147.6)  | Logger [cell.id,space.x,space.y]
+    +  11.7% = 147.7ms (147.6)  | Logger [cell.id,space.x,space.y]
+    +   5.8% =  73.2ms (895.5)  | Logger [V]
+    +   5.8% =  73.2ms (895.5)  | Logger [V]
+    +   5.2% =  65.8ms (930.6)  | CPM [run_model -> cell.center,cell.length,cell.surface,cell.type,cell.volume]
+    +   5.2% =  65.8ms (930.6)  | CPM [run_model -> cell.center,cell.length,cell.surface,cell.type,cell.volume]
+    +   3.5% =  44.7ms ( 44.7)  | Logger [Ve]
+    +   3.5% =  44.7ms ( 44.7)  | Logger [Ve]
+    +   1.5% =  19.4ms (194.1)  | Mapper [Ve,cell.center -> Vi]
+    +   1.5% =  19.4ms (194.1)  | Mapper [Ve,cell.center -> Vi]
+    +   1.4% =  17.6ms (143.1)  | Mapper [Ve,cell.center -> Vi]
+    +   1.4% =  17.6ms (143.1)  | Mapper [Ve,cell.center -> Vi]
+    +   1.3% =  16.7ms ( 91.0)  | System [V,c_V,p_V,run_model -> Ve]
+           |   0.5ms (  1.1)  | Diffusion[Ve]
+           |  16.2ms ( 89.9)  | Reaction
+    +   1.3% =  16.7ms ( 91.0)  | System [V,c_V,p_V,run_model -> Ve]
+    +   1.0% =  13.0ms (170.5)  | ChangeCellType [p_cf,run_model]
+    +   1.0% =  13.0ms (170.5)  | ChangeCellType [p_cf,run_model]
+    +   0.6% =   7.6ms (109.8)  | Event [time -> run_model]
+    +   0.6% =   7.6ms (109.8)  | Event [time -> run_model]
+    +   0.1% =   0.9ms (  8.9)  | ModelGraph []
+    +   0.1% =   0.9ms (  8.9)  | ModelGraph []
+    +   0.1% =   0.8ms (  0.8)  | Logger [celltype.infected.size,celltype.target.size]
+    +   0.1% =   0.8ms (  0.8)  | Logger [celltype.infected.size,celltype.target.size]
     +   0.0% =   0.1ms (  0.1)  | Logger [D_V,b_cf,c_V,p_V]
     +   0.0% =   0.1ms (  0.1)  | Logger [D_V,b_cf,c_V,p_V]
 
 ======================================================
 
 === Simulation finished ===
-Wall Time   = 1s 251ms
-CPU Time    = 3s 121ms (16 threads)
+Wall Time   = 1s 264ms
+CPU Time    = 3s 177ms (16 threads)
 
-morpheus -f /home/l/projects/Morpheus/Modelle/cell_free_1000/model/cell_free_1000_DV-wm_30_8.xml -o /home/l/projects/Morpheus/Modelle/cell_free_1000/output_fixed_cv_wm/DV-999_bcf-0.26481174355072745_pi-0.7540943366365904_cv-0.33 -b_cf=0.26481174355072745 -c_V=0.33 -p_V=0.7540943366365904
+morpheus -f /home/l/projects/Morpheus/Modelle/cell_free_1000/model/cell_free_1000_DV-wm_30_8.xml -o /home/l/projects/Morpheus/Modelle/cell_free_1000/output_fixed_cv_wm/DV-999_bcf-0.7595761817976738_pi-0.5767020367459441_cv-0.33 -b_cf=0.7595761817976738 -c_V=0.33 -p_V=0.5767020367459441

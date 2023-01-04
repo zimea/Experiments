@@ -1,0 +1,6 @@
+\begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{$(path_to_plot)s}
+    \caption{$(caption)s}
+    \label{fig: %(label)s}
+\end{subfigure}

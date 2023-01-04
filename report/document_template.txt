@@ -1,0 +1,14 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\begin{document}
+    
+    \title{%(title)s}
+    \author{Lea Zimmermann}
+    \maketitle
+
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+
+\end{document}
