@@ -158,12 +158,15 @@ class ResultLogger:
                 posterior_2d.savefig(os.path.join(plot_dir, "posterior_2d_%s.png" % i))
                 plt.close(posterior_2d)
 
-                resim = self.plot_resimulation(
-                    res["raw_sims"]["sim_data"][i],
-                    res["post_samples_unnorm"][i, 0 : self.config.nr_of_resimulations],
-                )
-                resim.savefig(os.path.join(plot_dir, "resimulation_%s.png" % i))
-                plt.close(resim)
+                if self.config.resimulation_plots:
+                    resim = self.plot_resimulation(
+                        res["raw_sims"]["sim_data"][i],
+                        res["post_samples_unnorm"][
+                            i, 0 : self.config.nr_of_resimulations
+                        ],
+                    )
+                    resim.savefig(os.path.join(plot_dir, "resimulation_%s.png" % i))
+                    plt.close(resim)
 
     def plot_resimulation(self, raw_sims, post_samples):  # TODO: generalisieren
         cut_timesteps = (

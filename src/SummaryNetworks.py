@@ -48,3 +48,68 @@ class ConvLSTM(tf.keras.Model):
         out = self.dense(out)
 
         return out
+
+
+class ConvLSTM3D(tf.keras.Model):
+    def __init__(self, n_summary):
+        super(ConvLSTM3D, self).__init__()
+
+        self.conv = tf.keras.Sequential(
+            [
+                tf.keras.layers.Conv3D(
+                    n_summary,
+                    input_shape=(30, 45, 45, 3),
+                    data_format="channels_last",
+                    kernel_size=3,
+                    strides=1,
+                    padding="valid",
+                    activation="relu",
+                    kernel_initializer="glorot_uniform",
+                ),
+                tf.keras.layers.MaxPooling3D(
+                    pool_size=(1, 2, 2), strides=None, padding="valid"
+                ),
+                tf.keras.layers.Conv3D(
+                    n_summary * 2,
+                    input_shape=(28, 21, 21, 16),
+                    data_format="channels_last",
+                    kernel_size=3,
+                    strides=1,
+                    padding="valid",
+                    activation="relu",
+                    kernel_initializer="glorot_uniform",
+                ),
+                tf.keras.layers.MaxPooling3D(
+                    pool_size=(1, 2, 2), strides=None, padding="valid"
+                ),
+                tf.keras.layers.Conv3D(
+                    n_summary * 3,
+                    input_shape=(26, 10, 10, 32),
+                    data_format="channels_last",
+                    kernel_size=3,
+                    strides=1,
+                    padding="valid",
+                    activation="relu",
+                    kernel_initializer="glorot_uniform",
+                ),
+                tf.keras.layers.MaxPooling3D(
+                    pool_size=(1, 2, 2), strides=None, padding="valid"
+                ),
+            ]
+        )
+        self.reshape = tf.keras.layers.Reshape((30, 45 * 45 * 3))
+        self.lstm = tf.keras.layers.LSTM(n_summary)
+        self.dense = tf.keras.Sequential(
+            [
+                tf.keras.layers.Dense(n_summary, activation="relu"),
+            ]
+        )
+
+    def call(self, x, **args):
+        """x is a 3D tensor of shape (batch_size, n_time_steps, n_time_series)"""
+        # out = self.conv(x)
+        out = self.reshape(x)
+        out = self.lstm(out)
+        out = self.dense(out)
+
+        return out
