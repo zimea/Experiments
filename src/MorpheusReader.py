@@ -1,4 +1,6 @@
+from asyncio.log import logger
 import os
+from xmlrpc.client import boolean
 import pandas as pd
 import numpy as np
 import glob
@@ -68,7 +70,7 @@ class MorpheusReader:
         return np.expand_dims(df.query("V == 1")["count"], axis=1)
 
     @timeit
-    def read_offline_data(self, path: str, workdir):
+    def read_offline_data_1d(self, path: str, workdir):
         with open(os.path.join(workdir, "log_read_offline.txt"), "w") as logfile:
             with redirect_stdout(logfile), redirect_stderr(logfile):
                 path_list = glob.glob(path)
@@ -214,7 +216,12 @@ class MorpheusReader:
                 else:
                     if not os.path.exists(path_to_split_data):
                         os.mkdir(path_to_split_data)
-                    dfs, params = self.read_offline_data(path, workdir)
+
+                    if self.config.image_data:
+                        dfs, params = self.read_offline_data_2d(path, workdir)
+                    else:
+                        dfs, params = self.read_offline_data_1d(path, workdir)
+
                     indices = np.random.permutation(dfs.shape[0])
                     split_test, split_validation = (
                         int(dfs.shape[0] * self.config.test_ratio),
@@ -257,3 +264,129 @@ class MorpheusReader:
                     )
 
                 return train, test, validation
+
+    def __read_2d_logger__(self, path: str, logger_name: str):
+        logger = np.genfromtxt(os.path.join(path, logger_name), delimiter="\t")
+        grid_size = logger[0, 0]
+        logger = np.delete(
+            logger, list(range(0, logger.shape[0], int(grid_size + 1))), axis=0
+        )
+        logger = logger[:, 1:]
+        logger = logger.reshape((51, 45, 45))
+        logger = logger[
+            self.config.cut_off_start
+            + 1 : self.config.timesteps
+            - self.config.cut_off_end
+        ]
+        return logger
+
+    def __read_1d_logger__(self, path: str, logger_name: str):
+        logger = np.genfromtxt(os.path.join(path, logger_name), delimiter="\t")
+        logger = logger[1:, :]
+        logger = logger.reshape(
+            (
+                self.config.timesteps + 1,
+                int(logger.shape[0] / (self.config.timesteps + 1)),
+                logger.shape[1],
+            )
+        )
+        logger = logger[
+            self.config.cut_off_start
+            + 1 : self.config.timesteps
+            - self.config.cut_off_end
+        ]
+        return logger
+
+    def __read_V_2d__(self, path: str):
+        logger_name = "logger_6_Ve.csv"
+        v_ext = self.__read_2d_logger__(path, logger_name)
+        return v_ext
+
+    def __read_I_2d__(self, path: str):
+        logger_cell_id = "logger_4_cell.id.csv"
+        logger_map_id_state = "logger_1.csv"
+        cell_id = self.__read_2d_logger__(path, logger_cell_id)
+        map_id_state = self.__read_1d_logger__(path, logger_map_id_state)
+
+        map = np.zeros((map_id_state.shape[0], self.config.cell_nr))
+        for t in range(map.shape[0]):
+            map[t][(map_id_state[t, :, 1] - 1).astype(int)] = map_id_state[t, :, -1]
+
+        cell_state = np.zeros(cell_id.shape)
+        for t in range(map.shape[0]):
+            cell_state[t] = map[t][cell_id[t].astype(int) - 1]
+        cell_state = np.where(cell_id == 0, 0, cell_state)
+
+        cell_mask = np.zeros(cell_id.shape)
+        cell_mask = np.where(cell_id != 0, 1, 0)
+
+        return cell_state, cell_mask
+
+    def read_2d_data(self, path: str):
+        v_ext = self.__read_V_2d__(path)
+        cell_state, cell_mask = self.__read_I_2d__(path)
+        data = np.concatenate(
+            [
+                np.expand_dims(v_ext, axis=3),
+                np.expand_dims(cell_state, axis=3),
+                np.expand_dims(cell_mask, axis=3),
+            ],
+            axis=3,
+        )
+        return data
+
+    @timeit
+    def read_offline_data_2d(self, path: str, workdir):
+        with open(os.path.join(workdir, "log_read_offline.txt"), "w") as logfile:
+            with redirect_stdout(logfile), redirect_stderr(logfile):
+                path_list = glob.glob(path)
+                nr_of_params = self.config.param_nr
+
+                n_sim = len(path_list)
+                dfs = np.empty(
+                    (
+                        n_sim,
+                        self.config.timesteps
+                        - 1
+                        - self.config.cut_off_start
+                        - self.config.cut_off_end,
+                        self.config.grid_size,
+                        self.config.grid_size,
+                        self.config.nr_observables,
+                    ),
+                    dtype=np.float32,
+                )
+                params = np.empty((n_sim, nr_of_params), dtype=np.float32)
+                invalidIndices = []
+
+                for path in tqdm(range(n_sim)):
+                    pathname = path_list[path]
+                    path_split = pathname.split("/")[len(pathname.split("/")) - 1]
+                    if "e" in path_split:
+                        invalidIndices.append(path)
+                        continue
+                    if path_split.startswith("sweep") or path_split.startswith("DV"):
+                        start_nr = 1
+                    else:
+                        start_nr = 0
+                    params_split = path_split.split("_")[start_nr : nr_of_params + 1]
+                    param_file = list(
+                        map(lambda x: round(float(x.split("-")[1]), 3), params_split)
+                    )
+                    if self.config.rejectionBasedOnPrior(param_file) == True:
+                        invalidIndices.append(path)
+                        continue
+
+                    sim = self.read_2d_data(pathname)
+                    if self.config.rejectionBasedOnSimulation(sim):
+                        invalidIndices.append(path)
+                        continue
+
+                    params[path] = param_file
+                    dfs[path] = sim
+
+                dfs = np.delete(dfs, invalidIndices, axis=0)
+                params = np.delete(params, invalidIndices, axis=0)
+                print("Read data in the form of: ", dfs.shape)
+
+                return dfs, params

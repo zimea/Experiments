@@ -12,7 +12,7 @@ parser.add_argument(
     "--workdir",
     type=str,
     help="path to the working directory for input and output",
-    default="/home/l/projects/Morpheus/Tutorial/Experiments/experiments/trial_50",
+    default="/home/lea/projects/INN/Experiments/experiments/offline_1000_2d",
 )
 parser.add_argument(
     "-c", "--configfile", type=str, help="path to the config file", default="config.py"
@@ -59,7 +59,11 @@ if __name__ == "__main__":
             logfile.write("Initialize generative model\n")
             simulationRunner = SimulationRunner(config, workdir, dataReader)
 
-            simulator = Simulator(simulator_fun=partial(simulationRunner.run_morpheus))
+            if config.image_data:
+                sim_func = simulationRunner.run_morpheus_2d
+            else:
+                sim_func = simulationRunner.run_morpheus
+            simulator = Simulator(simulator_fun=partial(sim_func))
             model = GenerativeModel(prior, simulator, name=config.model_name)
 
             logfile.write("Initialize amortizer\n")
